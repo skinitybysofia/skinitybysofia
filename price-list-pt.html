@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Preços - Skinity</title>
+    <link rel="stylesheet" href="skinity.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .price-list {
+            padding: 120px 5% 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .menu-images {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .menu-image {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 768px) {
+            .menu-images {
+                flex-direction: column;
+            }
+            .menu-image {
+                max-width: 800px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Skinity</div>
+            <ul class="nav-links">
+                <li><a href="skinity-pt.html#home">Início</a></li>
+                <li><a href="skinity-pt.html#treatments">Tratamentos</a></li>
+                <li><a href="skinity-pt.html#about">Conheça Sofia</a></li>
+                <li><a href="skinity-pt.html#contact">Contacto</a></li>
+                <li><a href="price-list-pt.html" class="active">Preços</a></li>
+            </ul>
+            <div class="language-switcher">
+                <a href="price-list.html">EN</a>
+                <span>|</span>
+                <a href="price-list-pt.html" class="active">PT</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="price-list">
+        <div class="menu-images">
+            <img src="Website/menu1.jpg" alt="Menu de Tratamentos Página 1" class="menu-image">
+            <img src="Website/menu2.jpg" alt="Menu de Tratamentos Página 2" class="menu-image">
+        </div>
+    </section>
+</body>
+</html> 
