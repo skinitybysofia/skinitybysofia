@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.cdnfonts.com/css/rasputin" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/dream-avenue" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Header / Navigation Bar -->
@@ -41,7 +42,7 @@
             <a href="#contact" class="cta-button">Book a Free Online Consultation</a>
         </div>
         <div class="hero-image">
-            <img src="photo10.jpg" alt="Aesthetic model">
+            <img src="main5.png" alt="Aesthetic model">
         </div>
     </section>
 
@@ -50,37 +51,37 @@
         <h2>Treatments</h2>
         <div class="treatment-list">
             <div class="treatment">
-                <img src="botox.jpg" alt="Botox Treatment" class="treatment-image">
+                <img src="botoxphoto1.png" alt="Botox Treatment" class="treatment-image">
                 <h3>Botox</h3>
                 <p>Smooth out fine lines and wrinkles with precise muscle-relaxing injections tailored to your features.</p>
                 <a href="botox-treatment.html" class="learn-more">Explore Treatment</a>
             </div>
             <div class="treatment">
-                <img src="lips3.jpg" alt="Dermal Fillers Treatment" class="treatment-image">
+                <img src="lips.png" alt="Dermal Fillers Treatment" class="treatment-image">
                 <h3>Dermal Fillers</h3>
                 <p>Enhance your facial volume and contour using high-quality dermal fillers for a refreshed look.</p>
                 <a href="dermal-fillers-treatment.html" class="learn-more">Explore Treatment</a>
             </div>
             <div class="treatment">
-                <img src="4photo.jpg" alt="Skinboosters Treatment" class="treatment-image">
+                <img src="skinbooster.png" alt="Skinboosters Treatment" class="treatment-image">
                 <h3>Skinboosters</h3>
                 <p>Deep hydration and skin revitalisation to improve texture, glow, and elasticity from the inside out.</p>
                 <a href="skinboosters-treatment.html" class="learn-more">Explore Treatment</a>
             </div>
             <div class="treatment">
-                <img src="1aqualyx.jpg" alt="Aqualyx Treatment" class="treatment-image">
+                <img src="fatreduction.png" alt="Aqualyx Treatment" class="treatment-image">
                 <h3>Aqualyx</h3>
                 <p>Targeted fat dissolving treatment for natural body contouring.</p>
                 <a href="aqualyx-treatment.html" class="learn-more">Explore Treatment</a>
             </div>
             <div class="treatment">
-                <img src="vit.jpg" alt="Vitamin B12 Treatment" class="treatment-image">
+                <img src="vitb12.png" alt="Vitamin B12 Treatment" class="treatment-image">
                 <h3>Vitamin B12 (Intramuscular)</h3>
                 <p>Boost your energy levels and overall wellness with vitamin B12 injections for enhanced metabolism and vitality.</p>
                 <a href="vitamin-b12-treatment.html" class="learn-more">Explore Treatment</a>
             </div>
             <div class="treatment">
-                <img src="prp1.jpg" alt="Microneedling Treatment" class="treatment-image">
+                <img src="prp2.png" alt="Microneedling Treatment" class="treatment-image">
                 <h3>Microneedling</h3>
                 <p>Natural skin rejuvenation using advanced collagen induction therapy for enhanced skin texture, tone, and regeneration.</p>
                 <a href="prp-treatment.html" class="learn-more">Explore Treatment</a>
@@ -135,11 +136,12 @@
                     <p><a href="https://www.instagram.com/skinitybysofia" target="_blank" class="social-link">@skinitybysofia</a></p>
                 </div>
             </div>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required></textarea>
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
                 <button type="submit" class="submit-button">Send Message</button>
+                <div id="formMessage" style="margin-top: 10px; display: none;"></div>
             </form>
         </div>
     </section>
@@ -177,5 +179,37 @@
             <p>&copy; 2024 Skinity. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        (function() {
+            emailjs.init("xpSyRCs0UfzMhhC3V");
+        })();
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('formMessage');
+            formMessage.style.display = 'block';
+            formMessage.style.color = '#666';
+            formMessage.textContent = 'Sending message...';
+
+            const templateParams = {
+                name: this.name.value,
+                email: this.email.value,
+                message: this.message.value
+            };
+
+            emailjs.send('service_w4k05yj', 'template_blmpt6o', templateParams)
+                .then(() => {
+                    formMessage.style.color = 'green';
+                    formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                    this.reset();
+                }, (error) => {
+                    formMessage.style.color = 'red';
+                    formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
+                    console.error('EmailJS error:', error);
+                });
+        });
+    </script>
 </body>
 </html> 

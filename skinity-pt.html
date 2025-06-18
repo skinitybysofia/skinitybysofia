@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.cdnfonts.com/css/rasputin" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/dream-avenue" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <header>
@@ -41,7 +42,7 @@
             <a href="#contact" class="cta-button">Agende uma Consulta Online Gratuita</a>
         </div>
         <div class="hero-image">
-            <img src="photo10.jpg" alt="Modelo estética">
+            <img src="main5.png" alt="Modelo estética">
         </div>
     </section>
 
@@ -49,37 +50,37 @@
         <h2>Tratamentos</h2>
         <div class="treatment-list">
             <div class="treatment">
-                <img src="botox.jpg" alt="Tratamento de Botox" class="treatment-image">
+                <img src="botoxphoto.png" alt="Tratamento de Botox" class="treatment-image">
                 <h3>Botox</h3>
                 <p>Suavize linhas finas e rugas com injeções precisas de relaxamento muscular adaptadas às suas características.</p>
                 <a href="botox-treatment-pt.html" class="learn-more">Explorar Tratamento</a>
             </div>
             <div class="treatment">
-                <img src="lips3.jpg" alt="Preenchimento Labial" class="treatment-image">
+                <img src="lips.png" alt="Preenchimento Labial" class="treatment-image">
                 <h3>Preenchimento Labial</h3>
                 <p>Melhore o volume e contorno facial usando preenchimentos de alta qualidade para um visual renovado.</p>
                 <a href="dermal-fillers-treatment-pt.html" class="learn-more">Explorar Tratamento</a>
             </div>
             <div class="treatment">
-                <img src="4photo.jpg" alt="Tratamento Skinboosters" class="treatment-image">
+                <img src="skinbooster.png" alt="Tratamento Skinboosters" class="treatment-image">
                 <h3>Skinboosters</h3>
                 <p>Hidratação profunda e revitalização da pele para melhorar a textura, o brilho e a elasticidade de dentro para fora.</p>
                 <a href="skinboosters-treatment-pt.html" class="learn-more">Explorar Tratamento</a>
             </div>
             <div class="treatment">
-                <img src="1aqualyx.jpg" alt="Tratamento Aqualyx" class="treatment-image">
+                <img src="fatreduction.png" alt="Tratamento Aqualyx" class="treatment-image">
                 <h3>Aqualyx</h3>
                 <p>Trate áreas de gordura teimosa com injeções seguras e não cirúrgicas de dissolução de gordura para contorno corporal.</p>
                 <a href="aqualyx-treatment-pt.html" class="learn-more">Explorar Tratamento</a>
             </div>
             <div class="treatment">
-                <img src="vit.jpg" alt="Tratamento de Vitamina B12" class="treatment-image">
+                <img src="vitb12.png" alt="Tratamento de Vitamina B12" class="treatment-image">
                 <h3>Vitamina B12 (Intramuscular)</h3>
                 <p>Aumente seus níveis de energia e bem-estar geral com injeções de vitamina B12 para melhorar o metabolismo e a vitalidade.</p>
                 <a href="vitamin-b12-treatment-pt.html" class="learn-more">Explorar Tratamento</a>
             </div>
             <div class="treatment">
-                <img src="prp1.jpg" alt="Tratamento de Microagulhamento" class="treatment-image">
+                <img src="prp2.png" alt="Tratamento de Microagulhamento" class="treatment-image">
                 <h3>Microagulhamento</h3>
                 <p>Rejuvenescimento natural da pele usando terapia avançada de indução de colágeno para melhorar a textura, tom e regeneração da pele.</p>
                 <a href="prp-treatment-pt.html" class="learn-more">Explorar Tratamento</a>
@@ -132,11 +133,12 @@
                     <p><a href="https://www.instagram.com/skinitybysofia" target="_blank" class="social-link">@skinitybysofia</a></p>
                 </div>
             </div>
-            <form class="contact-form">
-                <input type="text" placeholder="O Seu Nome" required>
-                <input type="email" placeholder="O Seu Email" required>
-                <textarea placeholder="A Sua Mensagem" required></textarea>
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="name" placeholder="O Seu Nome" required>
+                <input type="email" name="email" placeholder="O Seu Email" required>
+                <textarea name="message" placeholder="A Sua Mensagem" required></textarea>
                 <button type="submit" class="submit-button">Enviar Mensagem</button>
+                <div id="formMessage" style="margin-top: 10px; display: none;"></div>
             </form>
         </div>
     </section>
@@ -174,5 +176,37 @@
             <p>&copy; 2024 Skinity. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        (function() {
+            emailjs.init("xpSyRCs0UfzMhhC3V");
+        })();
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('formMessage');
+            formMessage.style.display = 'block';
+            formMessage.style.color = '#666';
+            formMessage.textContent = 'A enviar mensagem...';
+
+            const templateParams = {
+                name: this.name.value,
+                email: this.email.value,
+                message: this.message.value
+            };
+
+            emailjs.send('service_w4k05yj', 'template_blmpt6o', templateParams)
+                .then(() => {
+                    formMessage.style.color = 'green';
+                    formMessage.textContent = 'Obrigado! A sua mensagem foi enviada com sucesso.';
+                    this.reset();
+                }, (error) => {
+                    formMessage.style.color = 'red';
+                    formMessage.textContent = 'Desculpe, ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.';
+                    console.error('EmailJS error:', error);
+                });
+        });
+    </script>
 </body>
 </html> 
