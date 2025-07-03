@@ -12,50 +12,76 @@
             padding: 120px 5% 4rem;
             max-width: 1000px;
             margin: 0 auto;
-            background-color: #faf8f5;
+            background: linear-gradient(135deg, #f8f6f3 0%, #e8e4d9 100%);
         }
         .faq-content {
             background-color: var(--white);
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: 0 5px 20px var(--shadow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e6e0d5;
         }
         .faq-content h1 {
             color: var(--text-color);
             font-size: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             text-align: center;
             font-family: 'Playfair Display', serif;
+            font-weight: 700;
         }
         .faq-item {
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 1.5rem;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #f0ede8;
+            padding-bottom: 2rem;
+            background: #fefefe;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
         }
         .faq-item:last-child {
             border-bottom: none;
+            margin-bottom: 0;
         }
         .faq-question {
             color: var(--text-color);
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
         }
         .faq-answer {
-            color: #666;
+            color: #555;
             line-height: 1.8;
             font-size: 1.1rem;
+            font-weight: 400;
+        }
+        .faq-answer strong {
+            font-weight: 700;
+            color: var(--text-color);
+        }
+        .step-title {
+            font-weight: 700;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.5rem 0;
         }
         .back-button {
             display: inline-block;
-            margin-top: 2rem;
+            margin-top: 3rem;
             color: var(--secondary-color);
             text-decoration: none;
             font-weight: 600;
+            padding: 1rem 2rem;
+            border: 2px solid var(--secondary-color);
+            border-radius: 25px;
+            transition: all 0.3s ease;
         }
         .back-button:hover {
-            color: var(--text-color);
+            color: var(--white);
+            background-color: var(--secondary-color);
         }
     </style>
 </head>
@@ -83,61 +109,119 @@
             <h1>Perguntas Frequentes</h1>
             
             <div class="faq-item">
-                <div class="faq-question">Quais são os tratamentos estéticos mais comuns?</div>
+                <div class="faq-question">1. Como funciona o processo de tratamento na Skinity?</div>
                 <div class="faq-answer">
-                    Os tratamentos mais populares incluem Botox para redução de rugas, preenchimentos dérmicos para restauração de volume, skinboosters para hidratação e melhoria da qualidade da pele, e thread lifts para lifting facial e contorno.
+                    Na Skinity, cada passo é pensado para garantir um atendimento seguro, transparente e personalizado. O objetivo é que te sintas bem informada, confiante e acompanhada em todas as fases.
+
+                    <div class="step-title">Etapa 1: Avaliação online gratuita</div>
+                    O primeiro contacto é feito através de uma avaliação online gratuita, realizada por uma profissional qualificada. Nesta conversa, são exploradas as tuas preocupações estéticas, o teu histórico clínico e os objetivos que pretendes alcançar. Com base nisso, são sugeridos os tratamentos mais adequados, com explicações claras sobre os benefícios, limitações e expectativas realistas.
+                    Após esta avaliação, receberás também as orientações de cuidados pré-tratamento, para garantirmos que chegas à tua sessão presencial devidamente preparada.
+
+                    <div class="step-title">Etapa 2: Consentimento informado & agendamento</div>
+                    Caso decidas avançar com o procedimento, será enviado um documento que constitui um consentimento informado, onde encontras descrições detalhadas sobre o tratamento proposto - finalidade, modo de aplicação, possíveis riscos e contraindicações, efeitos secundários e cuidados posteriores.
+                    Este documento deve ser lido com atenção e assinado digitalmente. Apenas após a sua receção é possível confirmar a marcação da sessão presencial.
+
+                    <div class="step-title">Etapa 3: Sessão de tratamento presencial</div>
+                    No dia agendado, serás recebida num ambiente clínico seguro e devidamente regulamentado. Antes de iniciar, será feita uma nova avaliação facial e todas as tuas dúvidas serão esclarecidas.
+                    O tratamento será realizado com rigor técnico, foco na harmonia facial e com produtos médicos de qualidade, sempre com o objetivo de alcançar resultados subtis, seguros e naturais.
+                    No final, receberás as instruções de cuidados pós-tratamento personalizadas, para otimizar os resultados e minimizar efeitos secundários.
+
+                    <div class="step-title">Etapa 4: Acompanhamento e suporte contínuo</div>
+                    Após o tratamento, terás acesso direto à clínica para qualquer dúvida, esclarecimento ou acompanhamento que precises. Poderás também ser contactada para avaliação pós-procedimento e, se indicado, agendar uma revisão gratuita.
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Quanto tempo duram os resultados?</div>
+                <div class="faq-question">2. Os tratamentos são indicados para quem nunca realizou procedimentos estéticos?</div>
                 <div class="faq-answer">
-                    Os resultados variam consoante o tratamento: o Botox dura tipicamente 3-6 meses, os preenchimentos dérmicos 6-18 meses, os skinboosters 6-12 meses, e os thread lifts 1-2 anos. Os resultados individuais podem variar dependendo do tipo de pele, estilo de vida e área tratada.
+                    <strong>Sim.</strong> Todos os tratamentos são personalizados conforme as necessidades e expectativas de cada pessoa. Se for a tua primeira experiência, terás acompanhamento claro e informado em todas as etapas para te sentires segura e confiante.
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Há tempo de recuperação após os tratamentos?</div>
+                <div class="faq-question">3. Como saber qual é o tratamento mais indicado para mim?</div>
                 <div class="faq-answer">
-                    A maioria dos tratamentos tem um tempo de recuperação mínimo. Pode ocorrer alguma vermelhidão, inchaço ou hematomas que normalmente desaparecem em 24-48 horas. Geralmente pode retomar as atividades normais imediatamente após o tratamento.
+                    Durante a <strong>avaliação online gratuita</strong>, serão analisadas as tuas preocupações, histórico de saúde e objetivos estéticos. Com base nisso, serão recomendadas as opções de tratamento mais seguras e eficazes para alcançares resultados naturais e harmoniosos.
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Os tratamentos são dolorosos?</div>
+                <div class="faq-question">4. Quais são os tratamentos mais comuns na Skinity?</div>
                 <div class="faq-answer">
-                    O desconforto é mínimo e temporário. Utilizamos anestésicos tópicos e agulhas finas para garantir o seu conforto. A maioria dos clientes descreve a sensação como um ligeiro beliscão ou pressão.
+                    Os procedimentos mais procurados incluem:
+                    <br><strong>• Toxina botulínica (Botox®)</strong> para linhas de expressão na testa, glabela e pés de galinha
+                    <br><strong>• Skinboosters</strong> para hidratação profunda e melhoria da textura da pele
+                    <br><strong>• Microneedling facial</strong> para estimular colagénio e uniformizar a pele
+                    <br><strong>• Preenchimento dérmico (dermal fillers)</strong> para aumentar o volume e definir os lábios, ou suavizar linhas do sorriso
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Como sei qual tratamento é adequado para mim?</div>
+                <div class="faq-question">5. Quanto tempo duram os resultados?</div>
                 <div class="faq-answer">
-                    Durante a sua avaliação, avaliaremos as suas preocupações com a pele, objetivos e histórico médico para recomendar o plano de tratamento mais adequado. Sempre priorizamos resultados naturais e a sua segurança.
+                    Depende do tratamento e do metabolismo individual, mas em média:
+                    <br><strong>• Botox:</strong> 3 a 4 meses
+                    <br><strong>• Skinboosters:</strong> 4 a 6 meses
+                    <br><strong>• Microneedling:</strong> resultados progressivos, visíveis após 3 a 6 sessões
+                    <br><strong>• Preenchimento dérmico (dermal fillers):</strong> geralmente entre 6 a 12 meses, conforme o produto e área tratada
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">O que devo fazer antes da minha avaliação?</div>
+                <div class="faq-question">6. É possível combinar tratamentos na mesma sessão?</div>
                 <div class="faq-answer">
-                    Evite medicamentos que afinem o sangue (com aprovação do médico), álcool 24 horas antes, e chegue com a pele limpa. Forneceremos instruções específicas pré-tratamento durante a sua avaliação.
+                    <strong>Sim,</strong> se for clinicamente seguro. Por exemplo, Botox e Skinboosters podem ser feitos no mesmo dia, mas Botox e microneedling não devem ser combinados na mesma sessão. A decisão é tomada com base nas tuas necessidades e segurança.
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Com que frequência devo agendar tratamentos de manutenção?</div>
+                <div class="faq-question">7. Há tempo de recuperação após os tratamentos?</div>
                 <div class="faq-answer">
-                    Os horários de manutenção variam consoante o tratamento e necessidades individuais. Criaremos um plano personalizado durante a sua avaliação para ajudar a manter resultados ótimos.
+                    A maioria dos procedimentos tem <strong>tempo de recuperação mínimo ou inexistente.</strong> Poderás notar ligeira vermelhidão, inchaço ou pequenas equimoses que desaparecem em poucos dias. Serás orientada com cuidados específicos após o tratamento.
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Os tratamentos são seguros?</div>
+                <div class="faq-question">8. Os tratamentos são dolorosos?</div>
                 <div class="faq-answer">
-                    Sim, todos os tratamentos são aprovados pela FDA e realizados por profissionais qualificados usando técnicas estéreis e produtos de alta qualidade. Priorizamos a sua segurança e resultados naturais.
+                    As sensações variam, mas os tratamentos são <strong>geralmente bem tolerados.</strong> Utilizam-se agulhas muito finas e, quando necessário, anestésicos locais para minimizar o desconforto.
                 </div>
             </div>
 
+            <div class="faq-item">
+                <div class="faq-question">9. Os resultados com Botox vão deixar um aspeto "frozen"?</div>
+                <div class="faq-answer">
+                    <strong>Não.</strong> A abordagem foca-se em resultados subtis e equilibrados, respeitando a expressão facial. O objetivo é suavizar linhas mantendo a naturalidade. Vais continuar a parecer-te contigo própria, apenas com um ar mais descansado e renovado.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">10. Os tratamentos são indicados para homens?</div>
+                <div class="faq-answer">
+                    <strong>Sim.</strong> Todos os procedimentos são adequados para homens e mulheres. Muitos homens recorrem a Botox, Skinboosters ou microneedling para melhorar a textura da pele, reduzir rugas ou revitalizar o rosto de forma discreta e natural.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">11. É necessário pagar algum sinal para marcar consulta?</div>
+                <div class="faq-answer">
+                    <strong>Sim.</strong> Um pequeno sinal é solicitado para garantir a marcação e será deduzido do preço final do tratamento.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">12. Existem custos escondidos ou taxas de consulta?</div>
+                <div class="faq-answer">
+                    <strong>Não.</strong> A avaliação online é gratuita e os preços são comunicados com clareza antes da marcação.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">13. Já fiz tratamentos estéticos noutro local - posso ser acompanhado na Skinity?</div>
+                <div class="faq-answer">
+                    <strong>Sim.</strong> O teu histórico será avaliado durante a consulta. Pode ser recomendado um intervalo entre tratamentos ou ajustes para garantir segurança e melhores resultados.
+                </div>
+            </div>
             <a href="skinity-pt.html" class="back-button">← Voltar ao Início</a>
         </div>
     </section>

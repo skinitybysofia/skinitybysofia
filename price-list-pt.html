@@ -27,6 +27,12 @@
             border-radius: 10px;
             box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
         }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin: 1rem 0;
+            display: none;
+        }
         @media (max-width: 768px) {
             .menu-images {
                 flex-direction: column;
@@ -60,9 +66,23 @@
 
     <section class="price-list">
         <div class="menu-images">
-            <img src="Price1.png" alt="Lista de Preços Página 1" class="menu-image">
-            <img src="Price2.png" alt="Lista de Preços Página 2" class="menu-image">
+            <img src="Price1.png" alt="Lista de Preços Página 1" class="menu-image" onerror="handleImageError(this)">
+            <img src="price2.png" alt="Lista de Preços Página 2" class="menu-image" onerror="handleImageError(this)">
         </div>
+        <div class="error-message">Image failed to load. Please try refreshing the page.</div>
     </section>
+
+    <script>
+        function handleImageError(img) {
+            console.error('Failed to load image:', img.src);
+            img.style.display = 'none';
+            document.querySelector('.error-message').style.display = 'block';
+        }
+
+        // Log when images load successfully
+        document.querySelectorAll('.menu-image').forEach(img => {
+            img.onload = () => console.log('Successfully loaded:', img.src);
+        });
+    </script>
 </body>
 </html> 
