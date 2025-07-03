@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skinity</title>
-    <link rel="stylesheet" href="skinity.css">
+    <link rel="stylesheet" href="skinity.css?v=1.1">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.cdnfonts.com/css/rasputin" rel="stylesheet">
@@ -197,6 +197,27 @@
     </footer>
 
     <script>
+        // Force CSS reload to fix formatting issues
+        function reloadCSS() {
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.includes('skinity.css')) {
+                    link.setAttribute('href', href.split('?')[0] + '?v=' + Date.now());
+                }
+            });
+        }
+        
+        // Reload CSS if page loads without styles
+        window.addEventListener('load', function() {
+            const body = document.body;
+            const computedStyle = window.getComputedStyle(body);
+            if (computedStyle.fontFamily === 'serif' || computedStyle.fontFamily === 'Times') {
+                console.log('CSS not loaded properly, reloading...');
+                reloadCSS();
+            }
+        });
+
         (function() {
             emailjs.init("xpSyRCs0UfzMhhC3V");
         })();
