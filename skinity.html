@@ -16,15 +16,21 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="skin.jpg" alt="Skinity Logo">
                 <span>Skinity</span>
             </div>
-            <ul class="nav-links">
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#treatments">Treatments</a></li>
                 <li><a href="#about">Meet Sofia</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="price-list.html">Price List</a></li>
+                <li><a href="combination-packages.html">Combination Packages</a></li>
+                <li><a href="faq.html">FAQ</a></li>
             </ul>
             <div class="language-switcher">
                 <a href="skinity.html" class="active">EN</a>
@@ -37,9 +43,9 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Filters are good, but confidence is better.</h1>
-            <p>The best investment you can make is in yourself.</p>
-            <a href="#contact" class="cta-button">Book a Free Online Consultation</a>
+            <h1>Because Self-Care Is the Best Care</h1>
+            <p><strong>The best investment you can make is in yourself</strong></p>
+            <a href="#contact" class="cta-button">Book a Free Online Assessment</a>
         </div>
         <div class="hero-image">
             <img src="main5.png" alt="Aesthetic model">
@@ -51,13 +57,13 @@
         <h2>Treatments</h2>
         <div class="treatment-list">
             <div class="treatment">
-                <img src="botoxphoto1.png" alt="Botox Treatment" class="treatment-image">
+                <img src="botox22.png" alt="Botox Treatment" class="treatment-image">
                 <h3>Botox</h3>
                 <p>Smooth out fine lines and wrinkles with precise muscle-relaxing injections tailored to your features.</p>
                 <a href="botox-treatment.html" class="learn-more">Explore Treatment</a>
             </div>
             <div class="treatment">
-                <img src="lips.png" alt="Dermal Fillers Treatment" class="treatment-image">
+                <img src="derma3.png" alt="Dermal Fillers Treatment" class="treatment-image">
                 <h3>Dermal Fillers</h3>
                 <p>Enhance your facial volume and contour using high-quality dermal fillers for a refreshed look.</p>
                 <a href="dermal-fillers-treatment.html" class="learn-more">Explore Treatment</a>
@@ -89,6 +95,17 @@
         </div>
     </section>
 
+    <!-- Combination Packages Link Section -->
+    <section class="combination-link">
+        <div class="combination-link-container">
+            <a href="combination-packages.html" class="combination-link-text">
+                <span class="star">★</span>
+                Click here to explore our treatment combinations with reduced prices - more affordable than booking treatments individually
+                <span class="star">★</span>
+            </a>
+        </div>
+    </section>
+
     <!-- About Sofia Section -->
     <section id="about" class="about">
         <div class="about-content">
@@ -97,7 +114,7 @@
             </div>
             <div class="about-text">
                 <h2>Meet Sofia</h2>
-                <p>Specialized in achieving natural results, a registered nurse and certified aesthetic practitioner combines advanced aesthetic training with a strong healthcare background to offer personalized, results-driven treatments. Each procedure is designed to enhance the client's unique features, guided by a commitment to subtle, refined outcomes — where the goal is not to change, but to reveal the best version of you.</p>
+                <p>Specialized in achieving natural results, a registered nurse and certified aesthetic practitioner combines advanced aesthetic training with a strong healthcare background to offer personalized, results-driven treatments. Each procedure is designed to enhance the client's unique features, guided by a commitment to subtle, refined outcomes - where the goal is not to change, but to reveal the best version of you.</p>
                 <p>Using the latest techniques and high-quality products, every treatment is tailored to individual needs, ensuring safe, effective, and lasting results that highlight true beauty. With a deep understanding of facial harmony, clients can expect elegant, balanced enhancements that remain authentic and true to their individuality.</p>
                 <a href="#contact" class="learn-more">Book a Consultation</a>
             </div>
@@ -110,9 +127,9 @@
             <div class="contact-info">
                 <h2>Book Online Consultation</h2>
                 <p>Not sure which treatment is right for you?</p>
-                <p>Let's talk. During your free online consultation, we'll discuss your goals, assess your needs, and create a tailored treatment plan designed just for you. No pressure — just expert advice, honest recommendations, and a clear path to feeling your most confident.</p>
+                <p>Let's talk. During your free online consultation, we'll discuss your goals, assess your needs, and create a tailored treatment plan designed just for you. No pressure - just expert advice, honest recommendations, and a clear path to feeling your most confident.</p>
                 <p class="highlight-text">Feel heard. Feel understood. Feel confident in your decision.</p>
-                <p>Book your free consultation today — your glow starts here.</p>
+                <p>Book your free consultation today - your glow starts here.</p>
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <div class="location-info">
@@ -136,6 +153,10 @@
                     <p><a href="https://www.instagram.com/skinitybysofia" target="_blank" class="social-link">@skinitybysofia</a></p>
                 </div>
             </div>
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/skinitybysofia/30min?background_color=a47148&text_color=fdf8f5&primary_color=d4a373" style="min-width:320px;height:1100px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
             <form class="contact-form" id="contactForm">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
@@ -149,8 +170,8 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Skinity</h3>
-                <p>Your journey to natural beauty starts here</p>
+                <img src="skin.jpg" alt="Skinity Logo" style="width: 180px; height: auto; margin: 10px 0;">
+                <p>Healthy Skin, Healthy You.</p>
             </div>
             <div class="footer-section">
                 <h3>Opening Hours</h3>
@@ -164,15 +185,10 @@
                     <li><a href="#treatments">Treatments</a></li>
                     <li><a href="#about">Meet Sofia</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="price-list.html">Price List</a></li>
+                    <li><a href="combination-packages.html">Combination Packages</a></li>
+                    <li><a href="#qa">FAQ</a></li>
                 </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/skinitybysofia" target="_blank" title="Follow us on Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
             </div>
         </div>
         <div class="footer-bottom">
@@ -184,6 +200,13 @@
         (function() {
             emailjs.init("xpSyRCs0UfzMhhC3V");
         })();
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('open');
+        });
 
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -201,7 +224,7 @@
 
             emailjs.send('service_w4k05yj', 'template_blmpt6o', templateParams)
                 .then(() => {
-                    formMessage.style.color = 'green';
+                    formMessage.style.color = '#2563eb';
                     formMessage.textContent = 'Thank you! Your message has been sent successfully.';
                     this.reset();
                 }, (error) => {

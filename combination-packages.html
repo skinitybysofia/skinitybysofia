@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Price List - Skinity</title>
+    <title>Combination Packages - Skinity</title>
     <link rel="stylesheet" href="skinity.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .price-list {
+        .combination-packages {
             padding: 120px 5% 4rem;
             max-width: 1400px;
             margin: 0 auto;
         }
-        .menu-images {
+        .package-image-container {
             display: flex;
-            flex-direction: row;
             justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+            align-items: center;
         }
-        .menu-image {
+        .package-image {
             width: 100%;
             height: auto;
             max-width: 600px;
@@ -34,11 +32,8 @@
             display: none;
         }
         @media (max-width: 768px) {
-            .menu-images {
-                flex-direction: column;
-            }
-            .menu-image {
-                max-width: 800px;
+            .package-image {
+                max-width: 100%;
             }
         }
     </style>
@@ -52,22 +47,21 @@
                 <li><a href="skinity.html#treatments">Treatments</a></li>
                 <li><a href="skinity.html#about">Meet Sofia</a></li>
                 <li><a href="skinity.html#contact">Contact</a></li>
-                <li><a href="price-list.html" class="active">Price List</a></li>
-                <li><a href="combination-packages.html">Combination Packages</a></li>
-                <li><a href="skinity.html#qa">FAQ</a></li>
+                <li><a href="price-list.html">Price List</a></li>
+                <li><a href="combination-packages.html" class="active">Combination Packages</a></li>
+                <li><a href="faq.html">FAQ</a></li>
             </ul>
             <div class="language-switcher">
-                <a href="price-list.html" class="active">EN</a>
+                <a href="combination-packages.html" class="active">EN</a>
                 <span>|</span>
-                <a href="price-list-pt.html">PT</a>
+                <a href="combination-packages-pt.html">PT</a>
             </div>
         </nav>
     </header>
 
-    <section class="price-list">
-        <div class="menu-images">
-            <img src="./Price1.png" alt="Treatment Menu Page 1" class="menu-image" onerror="handleImageError(this)">
-            <img src="./Price2.png" alt="Treatment Menu Page 2" class="menu-image" onerror="handleImageError(this)">
+    <section class="combination-packages">
+        <div class="package-image-container">
+            <img src="./price3.png" alt="Combination Packages" class="package-image" onerror="handleImageError(this)">
         </div>
         <div class="error-message">Image failed to load. Please try refreshing the page.</div>
     </section>
@@ -79,10 +73,8 @@
             document.querySelector('.error-message').style.display = 'block';
         }
 
-        // Log when images load successfully
-        document.querySelectorAll('.menu-image').forEach(img => {
-            img.onload = () => console.log('Successfully loaded:', img.src);
-        });
+        // Log when image loads successfully
+        document.querySelector('.package-image').onload = () => console.log('Successfully loaded:', document.querySelector('.package-image').src);
     </script>
 </body>
 </html> 

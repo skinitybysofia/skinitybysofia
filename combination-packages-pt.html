@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Preços - Skinity</title>
+    <title>Pacotes de Combinação - Skinity</title>
     <link rel="stylesheet" href="skinity.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .price-list {
+        .combination-packages {
             padding: 120px 5% 4rem;
             max-width: 1400px;
             margin: 0 auto;
         }
-        .menu-images {
+        .package-image-container {
             display: flex;
-            flex-direction: row;
             justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+            align-items: center;
         }
-        .menu-image {
+        .package-image {
             width: 100%;
             height: auto;
             max-width: 600px;
             border-radius: 10px;
             box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
         }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin: 1rem 0;
+            display: none;
+        }
         @media (max-width: 768px) {
-            .menu-images {
-                flex-direction: column;
-            }
-            .menu-image {
-                max-width: 800px;
+            .package-image {
+                max-width: 100%;
             }
         }
     </style>
@@ -46,23 +47,34 @@
                 <li><a href="skinity-pt.html#treatments">Tratamentos</a></li>
                 <li><a href="skinity-pt.html#about">Enf. Inês Sofia Pires</a></li>
                 <li><a href="skinity-pt.html#contact">Contacto</a></li>
-                <li><a href="price-list-pt.html" class="active">Preçário</a></li>
-                <li><a href="combination-packages-pt.html">Combinações de Tratamentos</a></li>
+                <li><a href="price-list-pt.html">Preçário</a></li>
+                <li><a href="combination-packages-pt.html" class="active">Combinações de Tratamentos</a></li>
                 <li><a href="skinity-pt.html#qa">FAQ</a></li>
             </ul>
             <div class="language-switcher">
-                <a href="price-list.html">EN</a>
+                <a href="combination-packages.html">EN</a>
                 <span>|</span>
-                <a href="price-list-pt.html" class="active">PT</a>
+                <a href="combination-packages-pt.html" class="active">PT</a>
             </div>
         </nav>
     </header>
 
-    <section class="price-list">
-        <div class="menu-images">
-            <img src="Price1.png" alt="Lista de Preços Página 1" class="menu-image">
-            <img src="Price2.png" alt="Lista de Preços Página 2" class="menu-image">
+    <section class="combination-packages">
+        <div class="package-image-container">
+            <img src="./price3.png" alt="Pacotes de Combinação" class="package-image" onerror="handleImageError(this)">
         </div>
+        <div class="error-message">Image failed to load. Please try refreshing the page.</div>
     </section>
+
+    <script>
+        function handleImageError(img) {
+            console.error('Failed to load image:', img.src);
+            img.style.display = 'none';
+            document.querySelector('.error-message').style.display = 'block';
+        }
+
+        // Log when image loads successfully
+        document.querySelector('.package-image').onload = () => console.log('Successfully loaded:', document.querySelector('.package-image').src);
+    </script>
 </body>
 </html> 
