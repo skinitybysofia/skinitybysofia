@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microneedling Treatment - Skinity</title>
+    <link rel="stylesheet" href="skinity.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Brown+Sugar&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/rasputin" rel="stylesheet">
+    <style>
+        .treatment-detail {
+            padding: 120px 0 4rem;
+            max-width: 100%;
+            margin: 0;
+            background: #f8f6f3;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .treatment-detail::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 40%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(139, 69, 19, 0.04) 0%, transparent 70%);
+            transform: rotate(15deg);
+            z-index: 0;
+        }
+        .treatment-detail::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 30%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(160, 82, 45, 0.06) 0%, transparent 70%);
+            transform: rotate(-10deg);
+            z-index: 0;
+        }
+        .treatment-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .treatment-header img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+        .treatment-content {
+            background: #fefefe;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(139, 69, 19, 0.15), 0 10px 20px rgba(139, 69, 19, 0.08);
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .treatment-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 60px rgba(139, 69, 19, 0.2), 0 15px 30px rgba(139, 69, 19, 0.12);
+        }
+        .treatment-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #8B4513;
+        }
+        .title-section {
+            margin-bottom: 2rem;
+        }
+        .treatment-content h1 {
+            color: #8B4513;
+            font-size: 2rem;
+            margin: 0;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .treatment-content h1:hover {
+            color: #A0522D;
+            transform: scale(1.02);
+        }
+        .treatment-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #8B4513;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .treatment-content h1:hover::after {
+            width: 120px;
+            background: #A0522D;
+        }
+        .treatment-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #6B4423;
+            transition: all 0.3s ease;
+        }
+        .treatment-content p:hover {
+            color: #8B4513;
+            transform: translateX(5px);
+        }
+        .intro-section {
+            background: #f7f3f0;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            border-left: 5px solid #8B4513;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .intro-content {
+            flex: 1;
+        }
+        .intro-section:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 35px rgba(139, 69, 19, 0.15);
+            border-left-color: #A0522D;
+        }
+        .image-wrapper {
+            width: 280px;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 15px;
+            flex-shrink: 0;
+            background-color: #f7f3f0;
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .background-image {
+            max-width: 120%;
+            width: auto;
+            height: auto;
+            position: relative;
+            top: -8%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(139, 69, 19, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+        .intro-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(160, 82, 45, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-20px, 20px);
+        }
+        .detail-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .detail-box {
+            background: #A47148;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(164, 113, 72, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+        .detail-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #D4A373;
+            transition: all 0.3s ease;
+        }
+        .detail-box:hover {
+            background: #B8845A;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(164, 113, 72, 0.4);
+        }
+        .detail-box:hover::before {
+            background: #E6C9A8;
+            height: 5px;
+        }
+        .detail-box h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #F5DEB3;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .detail-box:hover h3 {
+            color: #FFFFFF;
+            transform: scale(1.05);
+        }
+        .detail-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            color: #FFFFFF;
+        }
+        .detail-box:hover p {
+            transform: scale(1.02);
+        }
+        .back-button {
+            display: inline-block;
+            background: #6B4423;
+            color: #FFFFFF;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(107, 68, 35, 0.4);
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .back-button:hover {
+            background: #8B4513;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(107, 68, 35, 0.5);
+        }
+        .section-divider {
+            height: 2px;
+            background: #8B4513;
+            margin: 3rem 0;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+        .section-divider:hover {
+            background: #A0522D;
+            height: 3px;
+        }
+        .price-section {
+            background: linear-gradient(135deg, #f7f3f0 0%, #faf8f5 100%);
+            padding: 1.5rem;
+            border-radius: 18px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            position: relative;
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .price-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(212, 163, 115, 0.3) 50%, transparent 100%);
+        }
+        .price-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(139, 69, 19, 0.15);
+        }
+        .price-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #8B4513;
+            transition: all 0.3s ease;
+        }
+        .price-section:hover::before {
+            background: #A0522D;
+            height: 5px;
+        }
+        .price-section h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #8B4513;
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .price-section h2:hover {
+            color: #A0522D;
+            transform: scale(1.05);
+        }
+        .price-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #8B4513;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .price-section h2:hover::after {
+            width: 120px;
+            background: #A0522D;
+        }
+        .price-category {
+            margin-bottom: 1rem;
+            position: relative;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            border: 1px solid rgba(212, 163, 115, 0.2);
+        }
+        .price-category h3 {
+            color: #8B4513;
+            margin-bottom: 0.7rem;
+            font-size: 1rem;
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #A0522D;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .price-category h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #A0522D 0%, #CD853F 100%);
+            transition: width 0.3s ease;
+        }
+        .price-category h3:hover {
+            color: #A0522D;
+            transform: translateX(5px);
+        }
+        .price-category h3:hover::after {
+            width: 100%;
+        }
+        .price-item {
+            padding: 0.8rem;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 8px;
+            margin-bottom: 0.6rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 248, 245, 0.98) 100%);
+            border: 1px solid rgba(212, 163, 115, 0.15);
+        }
+        .price-item > div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .price-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+        }
+        .price-value-single {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.2rem;
+        }
+        .price-value-label {
+            color: #8B7355;
+            font-size: 0.7rem;
+            font-weight: 500;
+            font-style: italic;
+            text-transform: lowercase;
+        }
+        .price-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #8B4513;
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        .price-item:hover {
+            background: linear-gradient(135deg, rgba(247, 243, 240, 0.98) 0%, rgba(255, 255, 255, 1) 100%);
+            padding-left: 1.8rem;
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15), 0 0 0 1px rgba(164, 113, 72, 0.2);
+            border-color: rgba(212, 163, 115, 0.3);
+        }
+        .price-item:hover::before {
+            transform: scaleY(1);
+        }
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        .price-item strong {
+            color: #6B4423;
+            font-size: 1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            flex: 1;
+            line-height: 1.3;
+        }
+        .price-item:hover strong {
+            color: #8B4513;
+            transform: scale(1.02);
+        }
+        .price-value {
+            color: #8B4513;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-shadow: 0 1px 2px rgba(139, 69, 19, 0.1);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        .price-item:hover .price-value {
+            color: #A0522D;
+            transform: scale(1.05);
+        }
+        .price-savings {
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            padding: 0.5rem;
+            background: linear-gradient(135deg, rgba(160, 82, 45, 0.12) 0%, rgba(164, 113, 72, 0.08) 100%);
+            border-radius: 6px;
+            border: 2px solid #A0522D;
+            position: relative;
+            overflow: hidden;
+        }
+        .price-savings::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #A0522D 0%, #CD853F 50%, #A0522D 100%);
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .price-savings-header {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-bottom: 0.15rem;
+        }
+        .price-savings-badge {
+            background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%);
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(160, 82, 45, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+        }
+        .price-savings-text {
+            color: #6B4423;
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+        .price-savings-amount {
+            color: #A0522D;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-top: 0.1rem;
+        }
+        .price-topup {
+            margin-top: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.6rem;
+            background: linear-gradient(135deg, rgba(139, 115, 85, 0.08) 0%, rgba(205, 133, 63, 0.05) 100%);
+            border-radius: 5px;
+            border-left: 2px solid #CD853F;
+            position: relative;
+        }
+        .price-topup-label {
+            color: #8B7355;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .price-topup-amount {
+            color: #8B4513;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span>Skinity</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="skinity.html#home">Home</a></li>
+                <li><a href="skinity.html#treatments">Treatments</a></li>
+                <li><a href="skinity.html#about">Meet Sofia</a></li>
+                <li><a href="skinity.html#contact">Contact</a></li>
+                <li><a href="combination-packages.html">Combination Packages</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <div class="language-switcher">
+                <a href="microneedling-treatment.html" class="active">EN</a>
+                <span>|</span>
+                <a href="microneedling-treatment-pt.html">PT</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="treatment-detail">
+        <div class="treatment-content">
+            <div class="title-section">
+                <h1>Microneedling with PRP, Exosomes and Growth Factors</h1>
+            </div>
+            
+            <div class="intro-section">
+                <div class="intro-content">
+                    <p style="margin-bottom: 0.5rem; font-size: 1rem;"><strong>Microneedling with PRP and Exosomes</strong></p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">Microneedling with PRP and Exosomes is a cutting-edge, minimally invasive procedure that rejuvenates your skin from within. Tiny, controlled needles stimulate the skin's natural healing process, while PRP (Platelet-Rich Plasma) uses your own blood, making it a completely natural, artificial-product-free procedure. Exosomes provide a next-generation regenerative boost, enhancing cellular communication, accelerating tissue repair, and improving overall skin health.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">This revolutionary procedure restores glow, firmness, and smoothness, reduces fine lines, scars, and imperfections, and delivers naturally youthful results without surgery. It's a favorite among clients seeking luxury, safe, and effective skin rejuvenation.</p>
+                    <p style="margin-bottom: 0; font-size: 0.95rem;">It boosts collagen and elastin production, improves hydration, texture, tone, and radiance, leaving the skin smooth, revitalized, and naturally luminous.</p>
+                </div>
+                <div class="image-wrapper">
+                    <img src="design4.png" alt="Microneedling Treatment" class="background-image">
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="detail-boxes">
+                <div class="detail-box">
+                    <h3>Treatment time</h3>
+                    <p>45–60 minutes</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Downtime</h3>
+                    <p>Minimal; mild redness or sensitivity may appear for 24–48 hours</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Results</h3>
+                    <p>Gradual, natural-looking improvements over 2–4 weeks; optimal results after 2–3 sessions</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Longevity</h3>
+                    <p>Long-lasting skin rejuvenation with proper skincare</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Consultation</h3>
+                    <p>Complimentary, tailored to your skin and goals</p>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="price-section">
+                <h2>Treatment Price Guide</h2>
+                
+                <div class="price-category">
+                    <h3>Microneedling with PRP</h3>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Face and Lips</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">Single session: £200</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £80</span>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions</div>
+                                <div class="price-savings-amount">Total: £520</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
+                                <span class="price-topup-amount">£180</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Face, Lips and Scalp (Hair Growth)</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">Single session: £280</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £140</span>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions</div>
+                                <div class="price-savings-amount">Total: £700</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
+                                <span class="price-topup-amount">£240</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Scalp (Hair Growth)</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">Single session: £200</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £80</span>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions</div>
+                                <div class="price-savings-amount">Total: £520</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
+                                <span class="price-topup-amount">£180</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="price-category">
+                    <h3>Exosomes</h3>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Face and Lips</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">Single session: £240</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £80</span>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions</div>
+                                <div class="price-savings-amount">Total: £640</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
+                                <span class="price-topup-amount">£200</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Face, Lips and Scalp (Hair Growth)</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">Single session: £320</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £80</span>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions</div>
+                                <div class="price-savings-amount">Total: £880</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
+                                <span class="price-topup-amount">£280</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Scalp (Hair Growth)</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">Single session: £240</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £80</span>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions</div>
+                                <div class="price-savings-amount">Total: £640</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
+                                <span class="price-topup-amount">£200</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="price-category">
+                    <h3>Super Aesthetic</h3>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Face and Lips</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">Single session: £</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £</span>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions</div>
+                                <div class="price-savings-amount">Total: £</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
+                                <span class="price-topup-amount">£</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Face, Lips and Scalp (Hair Growth)</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">Single session: £</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £</span>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions</div>
+                                <div class="price-savings-amount">Total: £</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
+                                <span class="price-topup-amount">£</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Scalp (Hair Growth)</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">Single session: £</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £</span>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions</div>
+                                <div class="price-savings-amount">Total: £</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
+                                <span class="price-topup-amount">£</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="skinity.html#treatments" class="back-button">← Back to Treatments</a>
+        </div>
+    </section>
+</body>
+</html>
+

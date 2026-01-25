@@ -11,10 +11,35 @@
     <link href="https://fonts.cdnfonts.com/css/rasputin" rel="stylesheet">
     <style>
         .treatment-detail {
-            padding: 120px 5% 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: #faf8f5;
+            padding: 120px 0 4rem;
+            max-width: 100%;
+            margin: 0;
+            background: #f8f6f3;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .treatment-detail::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 40%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(139, 69, 19, 0.04) 0%, transparent 70%);
+            transform: rotate(15deg);
+            z-index: 0;
+        }
+        .treatment-detail::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 30%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(160, 82, 45, 0.06) 0%, transparent 70%);
+            transform: rotate(-10deg);
+            z-index: 0;
         }
         .treatment-header {
             text-align: center;
@@ -28,22 +53,424 @@
             margin-bottom: 2rem;
         }
         .treatment-content {
-            background-color: var(--white);
+            background: #fefefe;
             padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px var(--shadow);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(139, 69, 19, 0.15), 0 10px 20px rgba(139, 69, 19, 0.08);
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .treatment-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 60px rgba(139, 69, 19, 0.2), 0 15px 30px rgba(139, 69, 19, 0.12);
+        }
+        .treatment-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #8B4513;
+        }
+        .title-section {
+            margin-bottom: 2rem;
         }
         .treatment-content h1 {
-            color: var(--text-color);
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
+            color: #8B4513;
+            font-size: 2rem;
+            margin: 0;
             text-align: center;
             font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .treatment-content h1:hover {
+            color: #A0522D;
+            transform: scale(1.02);
+        }
+        .treatment-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #8B4513;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .treatment-content h1:hover::after {
+            width: 120px;
+            background: #A0522D;
         }
         .treatment-content p {
             margin-bottom: 1.5rem;
             line-height: 1.8;
             font-size: 1.1rem;
+            color: #6B4423;
+            transition: all 0.3s ease;
+        }
+        .treatment-content p:hover {
+            color: #8B4513;
+            transform: translateX(5px);
+        }
+        .intro-section {
+            background: #f7f3f0;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            border-left: 5px solid #8B4513;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .intro-content {
+            flex: 1;
+        }
+        .intro-section:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 35px rgba(139, 69, 19, 0.15);
+            border-left-color: #A0522D;
+        }
+        .image-wrapper {
+            width: 280px;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 15px;
+            flex-shrink: 0;
+            background-color: #f7f3f0;
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .background-image {
+            max-width: 120%;
+            width: auto;
+            height: auto;
+            position: relative;
+            top: -8%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(139, 69, 19, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+        .intro-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(160, 82, 45, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-20px, 20px);
+        }
+        .detail-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .detail-box {
+            background: #A47148;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(164, 113, 72, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+        .detail-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #D4A373;
+            transition: all 0.3s ease;
+        }
+        .detail-box:hover {
+            background: #B8845A;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(164, 113, 72, 0.4);
+        }
+        .detail-box:hover::before {
+            background: #E6C9A8;
+            height: 5px;
+        }
+        .detail-box h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #F5DEB3;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .detail-box:hover h3 {
+            color: #FFFFFF;
+            transform: scale(1.05);
+        }
+        .detail-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            color: #FFFFFF;
+        }
+        .detail-box:hover p {
+            transform: scale(1.02);
+        }
+        .price-section {
+            background: #f7f3f0;
+            padding: 2.5rem;
+            border-radius: 25px;
+            margin: 2.5rem 0;
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            position: relative;
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .price-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(139, 69, 19, 0.15);
+        }
+        .price-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #8B4513;
+            transition: all 0.3s ease;
+        }
+        .price-section:hover::before {
+            background: #A0522D;
+            height: 5px;
+        }
+        .price-section h2 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #8B4513;
+            font-size: 1.8rem;
+            font-weight: 600;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .price-section h2:hover {
+            color: #A0522D;
+            transform: scale(1.05);
+        }
+        .price-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #8B4513;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .price-section h2:hover::after {
+            width: 120px;
+            background: #A0522D;
+        }
+        .price-category {
+            margin-bottom: 2rem;
+        }
+        .price-category h3 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #A0522D;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .price-category h3:hover {
+            color: #A0522D;
+            transform: translateX(5px);
+            border-bottom-color: #CD853F;
+        }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .price-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #8B4513;
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        .price-item:hover {
+            background: rgba(139, 69, 19, 0.08);
+            padding-left: 2rem;
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+        }
+        .price-item:hover::before {
+            transform: scaleY(1);
+        }
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        .price-item strong {
+            color: #6B4423;
+            font-size: 1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .price-item:hover strong {
+            color: #8B4513;
+            transform: scale(1.02);
+        }
+        .price-value {
+            color: #8B4513;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-shadow: 0 1px 2px rgba(139, 69, 19, 0.1);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .price-item:hover .price-value {
+            color: #A0522D;
+            transform: scale(1.05);
+        }
+        .back-button {
+            display: inline-block;
+            background: #6B4423;
+            color: #FFFFFF;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(107, 68, 35, 0.4);
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .back-button:hover {
+            background: #8B4513;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(107, 68, 35, 0.5);
+        }
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            font-size: 2rem;
+            animation-delay: 0s;
+        }
+        .floating-element:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            font-size: 1.5rem;
+            animation-delay: 2s;
+        }
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            font-size: 1.8rem;
+            animation-delay: 4s;
+        }
+        .floating-element:nth-child(4) {
+            bottom: 15%;
+            right: 25%;
+            font-size: 1.2rem;
+            animation-delay: 1s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        .section-divider {
+            height: 2px;
+            background: #8B4513;
+            margin: 3rem 0;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+        .section-divider:hover {
+            background: #A0522D;
+            height: 3px;
         }
         .benefits-list, .indications-list {
             list-style: none;
@@ -69,12 +496,24 @@
         .back-button {
             display: inline-block;
             margin-top: 2rem;
-            color: #b45309;
+            color: #FFFFFF;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            background: #6B4423;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(107, 68, 35, 0.4);
         }
         .back-button:hover {
-            color: var(--text-color);
+            background: #8B4513;
+            color: #FFFFFF;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(107, 68, 35, 0.5);
         }
     </style>
 </head>
@@ -89,7 +528,6 @@
                 <li><a href="skinity.html#treatments">Treatments</a></li>
                 <li><a href="skinity.html#about">Meet Sofia</a></li>
                 <li><a href="skinity.html#contact">Contact</a></li>
-                <li><a href="price-list.html">Price List</a></li>
                 <li><a href="combination-packages.html">Combination Packages</a></li>
                 <li><a href="faq.html">FAQ</a></li>
             </ul>
@@ -103,42 +541,98 @@
 
     <section class="treatment-detail">
         <div class="treatment-content">
-            <h1>Dermal Fillers – Natural Volume and Contour</h1>
+                    <div class="title-section">
+                        <h1>Dermal Fillers - Natural Volume and Contour</h1>
+                    </div>
             
-            <p>Dermal fillers are non-surgical treatments that use hyaluronic acid - a substance naturally found in the body - to restore volume, enhance facial contours, and smooth wrinkles and expression lines. These treatments are ideal for those who want to highlight their natural beauty without losing facial expression, offering immediate and subtle results.</p>
-
-            <p>Hyaluronic acid deeply hydrates the skin and stimulates collagen production, contributing to a firmer, more radiant, and rejuvenated appearance.</p>
-
-            <h2 class="section-title">Proven Safety and Effectiveness</h2>
-            <p>Hyaluronic acid-based fillers are widely used in aesthetic medicine due to their proven safety and biocompatible profile, meaning they are well tolerated by the body.</p>
-
-            <p>These are minimally invasive treatments, with side effects generally mild and temporary, such as slight redness or swelling at the injection site.</p>
-
-            <p>Results are visible immediately and can last between 6 to 18 months, depending on the product type and treated area.</p>
-
-            <h2 class="section-title">Areas of Application</h2>
-            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-bottom: 1.5rem;">
-                <ul class="benefits-list" style="flex: 2 1 300px; min-width: 220px; margin-bottom: 0; margin-top: 0;">
-                    <li>Lip enhancement</li>
-                    <li>Facial contour improvement (cheekbones)</li>
-                    <li>Smoothing nasolabial folds and other moderate wrinkles</li>
-                    <li>Deep hydration and skin revitalization</li>
-                </ul>
-                <img src="design4.png" alt="Dermal fillers application areas" style="max-width: 180px; width: 100%; height: auto; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.07); flex: 1 1 120px; min-width: 80px;" />
+            <div class="intro-section">
+                <div class="intro-content">
+                    <p style="margin-bottom: 0.5rem; font-size: 1rem;"><strong>What are Dermal Fillers?</strong></p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">Dermal fillers are advanced, non-surgical treatments made with hyaluronic acid - a substance naturally found in the body. They work by restoring lost volume, enhancing facial contours, and improving hydration, resulting in a smooth, lifted, and youthful appearance.</p>
+                    <p style="margin-bottom: 0; font-size: 0.95rem;">When performed with precision and expertise, fillers can subtly enhance features, refine proportions, and rejuvenate the face while maintaining natural expression and harmony.</p>
+                </div>
+                <div class="image-wrapper">
+                    <img src="dermalphoto.png" alt="Dermal Fillers" class="background-image">
+                </div>
             </div>
 
-            <h2 class="section-title">Scientific Studies and Approval</h2>
-            <p>Numerous studies published in journals such as the Journal of Cosmetic Dermatology and Dermatologic Surgery confirm that hyaluronic acid dermal fillers are effective for facial rejuvenation, with a low risk of complications when administered by qualified professionals.</p>
+            <div class="section-divider"></div>
 
-            <p>Products from well-known brands like Restylane and Juvederm are approved by European and international regulatory authorities, ensuring quality and safety.</p>
+            <div class="detail-boxes">
+                <div class="detail-box">
+                    <h3>Product type</h3>
+                    <p>Premium Hyaluronic Acid Fillers</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Treatment time</h3>
+                    <p>30–45 minutes</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Downtime</h3>
+                    <p>Minimal (mild swelling or bruising may occur)</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Full effect</h3>
+                    <p>Immediately visible, refining over 1–2 weeks</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Longevity</h3>
+                    <p>9–18 months (depending on area and product used)</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Reversible</h3>
+                    <p>Yes - results can be safely dissolved if required</p>
+                </div>
+            </div>
 
-            <h2 class="section-title">Why Choose Dermal Fillers?</h2>
-            <ul class="benefits-list">
-                <li>Natural results that enhance your beauty while maintaining genuine facial expression.</li>
-                <li>Quick procedure, with minimal discomfort and no significant downtime.</li>
-                <li>Fully personalized treatments tailored to each client's needs and goals.</li>
-                <li>Combines hydration and volume, promoting younger, healthier-looking skin.</li>
-            </ul>
+            <div class="detail-boxes">
+                <div class="detail-box">
+                    <h3>Follow-up</h3>
+                    <p>Complimentary review at 2 weeks</p>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="price-section">
+                <h2>Treatments Price Guide</h2>
+                
+                <div class="price-category">
+                    <h3>Facial Contouring and Enhancement</h3>
+                    <div class="price-item">
+                        <strong>Lip Filler 0.5mL</strong>
+                        <span class="price-value">£160</span>
+                    </div>
+                    <div class="price-item">
+                        <strong>Lip Filler 1mL</strong>
+                        <span class="price-value">£220</span>
+                    </div>
+                    <div class="price-item">
+                        <strong>Cheek Filler 1mL</strong>
+                        <span class="price-value">£210</span>
+                    </div>
+                    <div class="price-item">
+                        <strong>Nasolabial Folds (Smile Lines)</strong>
+                        <span class="price-value">£210</span>
+                    </div>
+                    <div class="price-item">
+                        <strong>Marionette Lines</strong>
+                        <span class="price-value">£210</span>
+                    </div>
+                    <div class="price-item">
+                        <strong>Chin Filler</strong>
+                        <span class="price-value">£210</span>
+                    </div>
+                    <div class="price-item">
+                        <strong>Jawline Filler</strong>
+                        <span class="price-value">£230</span>
+                    </div>
+                    <div class="price-item">
+                        <strong>Facial Filler Dissolve</strong>
+                        <span class="price-value">£100</span>
+                    </div>
+                </div>
+            </div>
 
             <a href="skinity.html#treatments" class="back-button">← Back to Treatments</a>
         </div>

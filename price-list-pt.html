@@ -47,7 +47,12 @@
     <header>
         <nav>
             <div class="logo">Skinity</div>
-            <ul class="nav-links">
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="skinity-pt.html#home">Início</a></li>
                 <li><a href="skinity-pt.html#treatments">Tratamentos</a></li>
                 <li><a href="skinity-pt.html#about">Enf. Inês Sofia Pires</a></li>
@@ -83,6 +88,15 @@
         document.querySelectorAll('.menu-image').forEach(img => {
             img.onload = () => console.log('Successfully loaded:', img.src);
         });
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('open');
+            });
+        }
     </script>
 </body>
 </html> 

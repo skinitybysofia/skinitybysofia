@@ -28,7 +28,6 @@
                 <li><a href="#treatments">Treatments</a></li>
                 <li><a href="#about">Meet Sofia</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="price-list.html">Price List</a></li>
                 <li><a href="combination-packages.html">Combination Packages</a></li>
                 <li><a href="faq.html">FAQ</a></li>
             </ul>
@@ -81,12 +80,6 @@
                 <a href="aqualyx-treatment.html" class="learn-more">Explore Treatment</a>
             </div>
             <div class="treatment">
-                <img src="vitb12.png" alt="Vitamin B12 Treatment" class="treatment-image">
-                <h3>Vitamin B12 (Intramuscular)</h3>
-                <p>Boost your energy levels and overall wellness with vitamin B12 injections for enhanced metabolism and vitality.</p>
-                <a href="vitamin-b12-treatment.html" class="learn-more">Explore Treatment</a>
-            </div>
-            <div class="treatment">
                 <img src="prp2.png" alt="Microneedling Treatment" class="treatment-image">
                 <h3>Microneedling</h3>
                 <p>Natural skin rejuvenation using advanced collagen induction therapy for enhanced skin texture, tone, and regeneration.</p>
@@ -110,7 +103,7 @@
     <section id="about" class="about">
         <div class="about-content">
             <div class="about-image">
-                <img src="sofiaphoto.jpg" alt="Sofia - Aesthetic Nurse">
+                <img src="inst1.jpeg" alt="Sofia - Aesthetic Nurse">
             </div>
             <div class="about-text">
                 <h2>Meet Sofia</h2>
@@ -121,27 +114,34 @@
         </div>
     </section>
 
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="reviews-container">
+            <h2 class="reviews-title">What Our Clients Say</h2>
+            <div class="reviews-carousel-wrapper">
+                <div class="reviews-carousel" id="reviewsCarousel">
+                    <!-- Reviews will be added here dynamically -->
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" id="prevBtn">‹</button>
+                    <button class="carousel-btn next-btn" id="nextBtn">›</button>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="contact-container">
             <div class="contact-info">
-                <h2>Book Online Consultation</h2>
+                <h2>Free Online/In-Person Consultation</h2>
                 <p>Not sure which treatment is right for you?</p>
-                <p>Let's talk. During your free online consultation, we'll discuss your goals, assess your needs, and create a tailored treatment plan designed just for you. No pressure - just expert advice, honest recommendations, and a clear path to feeling your most confident.</p>
-                <p class="highlight-text">Feel heard. Feel understood. Feel confident in your decision.</p>
-                <p>Book your free consultation today - your glow starts here.</p>
+                <p>During your free consultation, we'll discuss your goals, assess your needs, and create a personalized treatment plan just for you. No pressure, just expert guidance, honest recommendations, and a clear path to your most confident, radiant self.</p>
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <div class="location-info">
-                        <p>Lisbon, Portugal</p>
-                        <p>Glasgow, Scotland</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-phone"></i>
-                    <div class="location-info">
-                        <p>+351 919 320 198</p>
-                        <p>+44 747 173 7817</p>
+                        <p>London, UK</p>
                     </div>
                 </div>
                 <div class="info-item">
@@ -149,14 +149,14 @@
                     <p>skinitybysofia@gmail.com</p>
                 </div>
                 <div class="info-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <p><a href="https://wa.me/447471737817" target="_blank" class="social-link">Message us on WhatsApp</a></p>
+                </div>
+                <div class="info-item">
                     <i class="fab fa-instagram"></i>
                     <p><a href="https://www.instagram.com/skinitybysofia" target="_blank" class="social-link">@skinitybysofia</a></p>
                 </div>
             </div>
-            <!-- Calendly inline widget begin -->
-            <div class="calendly-inline-widget" data-url="https://calendly.com/skinitybysofia/30min?background_color=a47148&text_color=fdf8f5&primary_color=d4a373" style="min-width:320px;height:1100px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            <!-- Calendly inline widget end -->
             <form class="contact-form" id="contactForm">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
@@ -167,16 +167,45 @@
         </div>
     </section>
 
+    <!-- Instagram Feed Section -->
+    <section class="instagram-feed">
+        <div class="instagram-header">
+            <h2>Follow Us on Instagram</h2>
+            <a href="https://www.instagram.com/skinitybysofia" target="_blank" class="instagram-link">
+                <i class="fab fa-instagram"></i> @skinitybysofia
+            </a>
+        </div>
+        <div class="instagram-carousel">
+            <div class="instagram-track" id="instagram-track">
+                <!-- Instagram posts will be loaded automatically via JavaScript -->
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <img src="skin.jpg" alt="Skinity Logo" style="width: 180px; height: auto; margin: 10px 0;">
-                <p>Healthy Skin, Healthy You.</p>
+            <div class="footer-section footer-logo-section">
+                <div class="footer-logo-container">
+                    <img src="skin.jpg" alt="Skinity Logo" class="footer-logo">
+                </div>
+                <p class="footer-slogan">Healthy Skin, Healthy You.</p>
             </div>
             <div class="footer-section">
-                <h3>Opening Hours</h3>
-                <p>Monday - Friday: 9:00 AM - 8:00 PM</p>
-                <p>Saturday - Sunday: 10:00 AM - 6:00 PM</p>
+                <h3 class="opening-hours-title">Opening Hours</h3>
+                <div class="opening-hours-container">
+                    <div class="hours-item">
+                        <div class="hours-content">
+                            <div class="hours-day">Monday - Friday</div>
+                            <div class="hours-time">10:00 AM - 8:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="hours-item">
+                        <div class="hours-content">
+                            <div class="hours-day">Saturday - Sunday</div>
+                            <div class="hours-time">10:00 AM - 8:00 PM</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
@@ -185,14 +214,13 @@
                     <li><a href="#treatments">Treatments</a></li>
                     <li><a href="#about">Meet Sofia</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="price-list.html">Price List</a></li>
                     <li><a href="combination-packages.html">Combination Packages</a></li>
                     <li><a href="#qa">FAQ</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Skinity. All rights reserved.</p>
+            <p>&copy; 2025 Skinity. All rights reserved.</p>
         </div>
     </footer>
 
@@ -254,6 +282,387 @@
                     console.error('EmailJS error:', error);
                 });
         });
+
+        // Instagram Feed Loader
+        (function() {
+            const INSTAGRAM_USERNAME = 'skinitybysofia';
+            const INSTAGRAM_URL = 'https://www.instagram.com/' + INSTAGRAM_USERNAME;
+            
+            // Configuration: Add your Instagram post image URLs here
+            // 
+            // METHOD 1 - Manual URLs (EASIEST):
+            // 1. Go to your Instagram profile: https://www.instagram.com/skinitybysofia
+            // 2. Right-click on a post image and select "Open image in new tab"
+            // 3. Copy the URL from the address bar
+            // 4. Add it to the INSTAGRAM_POSTS array below
+            // 
+            // METHOD 2 - Using Instagram Graph API (AUTOMATIC):
+            // 1. Go to https://developers.facebook.com/apps/
+            // 2. Create a new app or use existing one
+            // 3. Add Instagram Basic Display product
+            // 4. Get your Access Token and User ID
+            // 5. Fill in INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_USER_ID below
+            //
+            // METHOD 3 - Using a third-party service:
+            // You can use services like https://www.juicer.io or https://www.socialwall.io
+            // They provide embed codes that can be integrated
+            //
+            const INSTAGRAM_POSTS = [
+                // Post 1: Usando imagem local e link direto
+                { src: 'inst1.jpeg', link: 'https://www.instagram.com/p/DOyKYXnCA18/?utm_source=ig_web_button_native_share' },
+                // Post 2: Usando imagem local e link direto
+                { src: 'inst2.png', link: 'https://www.instagram.com/p/DO29m9kDGsj/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==' },
+                // Reel 3: Usando imagem local e link direto
+                { src: 'inst3.png', link: 'https://www.instagram.com/reel/DO8NJyZCB1B/' },
+                // Post 4: Usando imagem local e link direto
+                { src: 'inst4.png', link: 'https://www.instagram.com/p/DPLzU68CKsF/' },
+                // Post 5: Usando imagem local e link direto
+                { src: 'ints5.png', link: 'https://www.instagram.com/p/DPjWZlZiDPj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+                // Post 6: Usando imagem local e link direto
+                { src: 'inst6.png', link: 'https://www.instagram.com/p/DPwVZ4oCCBL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+            ];
+
+            // Alternative: Try to fetch from Instagram Graph API (requires access token)
+            const INSTAGRAM_ACCESS_TOKEN = ''; // Add your Instagram Graph API access token here if available
+            const INSTAGRAM_USER_ID = ''; // Add your Instagram User ID here if available
+            
+            // Option: Use a public Instagram profile scraper service (may have limitations)
+            // Note: Instagram's terms of service should be respected
+            const USE_PUBLIC_SCRAPER = false; // Set to true to try fetching public posts (experimental)
+
+            function extractPostId(url) {
+                // Extract Instagram post or reel ID from URL
+                const postMatch = url.match(/instagram\.com\/p\/([^\/\?]+)/);
+                const reelMatch = url.match(/instagram\.com\/reel\/([^\/\?]+)/);
+                return postMatch ? postMatch[1] : (reelMatch ? reelMatch[1] : null);
+            }
+
+            function getPostType(url) {
+                // Determine if URL is a post or reel
+                if (url.includes('/reel/')) return 'reel';
+                if (url.includes('/p/')) return 'post';
+                return 'post'; // default
+            }
+
+
+            function createInstagramPost(imageUrl, postUrl, index) {
+                const post = document.createElement('div');
+                post.className = 'instagram-post';
+                
+                // Extract post ID and type from imageUrl
+                const postId = extractPostId(imageUrl);
+                const postType = getPostType(imageUrl);
+                
+                // Use the provided postUrl directly for the link
+                const link = document.createElement('a');
+                link.href = postUrl;
+                link.target = '_blank';
+                
+                const img = document.createElement('img');
+                img.alt = `Instagram Post ${index + 1}`;
+                img.className = 'instagram-image';
+                img.style.display = 'none'; // Hide initially
+                
+                const placeholder = document.createElement('div');
+                placeholder.className = 'instagram-placeholder';
+                placeholder.style.display = 'flex'; // Show placeholder initially
+                placeholder.innerHTML = `
+                    <i class="fab fa-instagram"></i>
+                    <p>Loading...</p>
+                `;
+                
+                // Add Instagram hover overlay
+                const hoverOverlay = document.createElement('div');
+                hoverOverlay.className = 'instagram-hover-overlay';
+                hoverOverlay.innerHTML = '<i class="fab fa-instagram"></i>';
+                
+                link.appendChild(img);
+                link.appendChild(placeholder);
+                link.appendChild(hoverOverlay);
+                post.appendChild(link);
+                
+                // Load image based on imageUrl type
+                if (imageUrl.startsWith('http') && (imageUrl.includes('instagram.com/p/') || imageUrl.includes('instagram.com/reel/'))) {
+                    // This is an Instagram post/reel URL, try oEmbed API
+                    placeholder.style.display = 'flex'; // Show placeholder while fetching
+                    
+                    const postId = extractPostId(imageUrl);
+                    const postType = getPostType(imageUrl);
+
+                    if (postId) {
+                        const embedUrl = postType === 'reel'
+                            ? `https://api.instagram.com/oembed/?url=${encodeURIComponent(`https://www.instagram.com/reel/${postId}/`)}`
+                            : `https://api.instagram.com/oembed/?url=${encodeURIComponent(`https://www.instagram.com/p/${postId}/`)}`;
+                        
+                        fetch(embedUrl)
+                            .then(response => {
+                                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                                return response.json();
+                            })
+                            .then(data => {
+                                console.log('Instagram oEmbed data:', data);
+                                if (data.thumbnail_url) {
+                                    img.src = data.thumbnail_url;
+                                    img.onload = function() {
+                                        this.style.display = 'block';
+                                        placeholder.style.display = 'none';
+                                    };
+                                    img.onerror = function() {
+                                        console.log('Image failed to load:', data.thumbnail_url);
+                                        this.style.display = 'none';
+                                        placeholder.innerHTML = `
+                                            <i class="fab fa-instagram"></i>
+                                            <p>Instagram Post ${index + 1}</p>
+                                        `;
+                                        placeholder.style.display = 'flex';
+                                    };
+                                } else {
+                                    console.log('No thumbnail_url in response');
+                                    placeholder.innerHTML = `
+                                        <i class="fab fa-instagram"></i>
+                                        <p>Instagram Post ${index + 1}</p>
+                                    `;
+                                    placeholder.style.display = 'flex';
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error loading Instagram image from oEmbed:', error);
+                                img.style.display = 'none';
+                                placeholder.innerHTML = `
+                                    <i class="fab fa-instagram"></i>
+                                    <p>Instagram Post ${index + 1}</p>
+                                `;
+                                placeholder.style.display = 'flex';
+                            });
+                    } else {
+                        img.style.display = 'none';
+                        placeholder.innerHTML = `
+                            <i class="fab fa-instagram"></i>
+                            <p>Instagram Post ${index + 1}</p>
+                        `;
+                        placeholder.style.display = 'flex';
+                    }
+                } else {
+                    // This is a direct image URL (local file like inst1.jpeg or external image)
+                    img.src = imageUrl;
+                    img.onload = function() {
+                        this.style.display = 'block';
+                        placeholder.style.display = 'none';
+                    };
+                    img.onerror = function() {
+                        console.error('Failed to load image:', imageUrl);
+                        this.style.display = 'none';
+                        placeholder.innerHTML = `
+                            <i class="fab fa-instagram"></i>
+                            <p>Instagram Post ${index + 1}</p>
+                        `;
+                        placeholder.style.display = 'flex';
+                    };
+                    placeholder.style.display = 'flex'; // Show placeholder initially
+                }
+                
+                return post;
+            }
+
+            function loadInstagramPosts() {
+                const track = document.getElementById('instagram-track');
+                if (!track) return;
+
+                // If manual URLs are provided, use them
+                if (INSTAGRAM_POSTS.length > 0) {
+                    INSTAGRAM_POSTS.forEach((postData, index) => {
+                        // Handle both object format {src, link} and string format (backward compatibility)
+                        const imageUrl = typeof postData === 'object' ? postData.src : postData;
+                        const postUrl = typeof postData === 'object' ? postData.link : 
+                                       (extractPostId(imageUrl) ? 
+                                        (getPostType(imageUrl) === 'reel' ? 
+                                         `https://www.instagram.com/reel/${extractPostId(imageUrl)}/` : 
+                                         `https://www.instagram.com/p/${extractPostId(imageUrl)}/`) : 
+                                        INSTAGRAM_URL);
+                        const post = createInstagramPost(imageUrl, postUrl, index);
+                        track.appendChild(post);
+                    });
+                    // Duplicate for seamless loop
+                    INSTAGRAM_POSTS.forEach((postData, index) => {
+                        const imageUrl = typeof postData === 'object' ? postData.src : postData;
+                        const postUrl = typeof postData === 'object' ? postData.link : 
+                                       (extractPostId(imageUrl) ? 
+                                        (getPostType(imageUrl) === 'reel' ? 
+                                         `https://www.instagram.com/reel/${extractPostId(imageUrl)}/` : 
+                                         `https://www.instagram.com/p/${extractPostId(imageUrl)}/`) : 
+                                        INSTAGRAM_URL);
+                        const post = createInstagramPost(imageUrl, postUrl, index);
+                        track.appendChild(post);
+                    });
+                } else if (INSTAGRAM_ACCESS_TOKEN && INSTAGRAM_USER_ID) {
+                    // Try to fetch from Instagram Graph API
+                    fetch(`https://graph.instagram.com/${INSTAGRAM_USER_ID}/media?fields=id,media_type,media_url,permalink&access_token=${INSTAGRAM_ACCESS_TOKEN}&limit=6`)
+                        .then(response => {
+                            if (!response.ok) throw new Error('API request failed');
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.data && data.data.length > 0) {
+                                data.data.forEach((item, index) => {
+                                    if (item.media_type === 'IMAGE' || item.media_type === 'CAROUSEL_ALBUM') {
+                                        const post = createInstagramPost(item.media_url, item.permalink, index);
+                                        track.appendChild(post);
+                                    }
+                                });
+                                // Duplicate for seamless loop
+                                data.data.forEach((item, index) => {
+                                    if (item.media_type === 'IMAGE' || item.media_type === 'CAROUSEL_ALBUM') {
+                                        const post = createInstagramPost(item.media_url, item.permalink, index);
+                                        track.appendChild(post);
+                                    }
+                                });
+                            } else {
+                                createFallbackPosts();
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching Instagram posts from API:', error);
+                            createFallbackPosts();
+                        });
+                } else if (USE_PUBLIC_SCRAPER) {
+                    // Experimental: Try to fetch from public profile (may not work due to CORS)
+                    // This is a placeholder - you would need a backend proxy for this to work
+                    console.warn('Public scraper option is experimental and may not work due to CORS restrictions.');
+                    createFallbackPosts();
+                } else {
+                    // Fallback: Create placeholder posts
+                    createFallbackPosts();
+                }
+            }
+
+            function createFallbackPosts() {
+                const track = document.getElementById('instagram-track');
+                const postCount = 6;
+                
+                for (let i = 0; i < postCount; i++) {
+                    const post = createInstagramPost('', INSTAGRAM_URL, i);
+                    track.appendChild(post);
+                    // Show placeholder
+                    const placeholder = post.querySelector('.instagram-placeholder');
+                    if (placeholder) {
+                        placeholder.style.display = 'flex';
+                    }
+                }
+                // Duplicate for seamless loop
+                for (let i = 0; i < postCount; i++) {
+                    const post = createInstagramPost('', INSTAGRAM_URL, i);
+                    track.appendChild(post);
+                    const placeholder = post.querySelector('.instagram-placeholder');
+                    if (placeholder) {
+                        placeholder.style.display = 'flex';
+                    }
+                }
+            }
+
+            // Load Instagram posts when page is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', loadInstagramPosts);
+            } else {
+                loadInstagramPosts();
+            }
+        })();
+
+        // Reviews Carousel
+        const reviewsData = [
+            {
+                name: "Yenny da Silva",
+                text: "I always used very light makeup, but when I applied foundation, my skin would become cracked and marked in some areas. After the treatment I did with you here in Portugal, I notice a huge difference: my skin is much smoother and makeup looks perfect. Thank you so much for your care and professionalism. We look forward to seeing you soon to repeat!",
+                rating: 5
+            },
+            {
+                name: "Lucy Silva",
+                text: "My skin became beautiful and wonderful — super luminous and with an even more youthful appearance. It looks like porcelain skin ✨ Thank you, Inês!",
+                rating: 5
+            },
+            {
+                name: "Vanessa Freitas",
+                text: "My pores disappeared after microneedling with PRP, it's like I have a filter on my face. Thank you Inês!",
+                rating: 5
+            },
+            {
+                name: "Paula Fernandes",
+                text: "I was truly delighted with the result 🙏 I even have a friend who immediately became interested and asked for your contact 😂 so please remember me when you return, because she would love to book a treatment with you. I wish you a great return to London and a Happy New Year, with lots of health and success.",
+                rating: 5
+            },
+            {
+                name: "Maria N",
+                text: "I absolutely loved the result of my full-face Botox treatment. I was aiming for a very natural look and felt quite nervous, as it was my first time having Botox. The result exceeded my expectations - natural, balanced and beautifully done. Thank you so much. I will definitely be your client for life.",
+                rating: 5
+            }
+        ];
+
+        function initReviewsCarousel() {
+            const carousel = document.getElementById('reviewsCarousel');
+            const dotsContainer = document.getElementById('carouselDots');
+            
+            if (reviewsData.length === 0) return;
+
+            // Create review cards
+            reviewsData.forEach((review, index) => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card';
+                reviewCard.innerHTML = `
+                    <div class="review-stars">${'★'.repeat(review.rating)}</div>
+                    <p class="review-text">"${review.text}"</p>
+                    <p class="review-author">— ${review.name}</p>
+                `;
+                carousel.appendChild(reviewCard);
+
+                // Create dot
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            let currentSlide = 0;
+            const totalSlides = reviewsData.length;
+
+            function showSlide(index) {
+                const cards = carousel.querySelectorAll('.review-card');
+                const dots = dotsContainer.querySelectorAll('.dot');
+                
+                cards.forEach((card, i) => {
+                    card.style.display = i === index ? 'block' : 'none';
+                });
+                
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                showSlide(currentSlide);
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            document.getElementById('nextBtn').addEventListener('click', nextSlide);
+            document.getElementById('prevBtn').addEventListener('click', prevSlide);
+
+            // Auto-rotate every 5 seconds
+            setInterval(nextSlide, 5000);
+
+            // Initialize
+            showSlide(0);
+        }
+
+        initReviewsCarousel();
     </script>
 </body>
 </html> 

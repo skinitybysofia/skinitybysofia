@@ -11,10 +11,35 @@
     <link href="https://fonts.cdnfonts.com/css/rasputin" rel="stylesheet">
     <style>
         .treatment-detail {
-            padding: 120px 5% 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: #faf8f5;
+            padding: 120px 0 4rem;
+            max-width: 100%;
+            margin: 0;
+            background: #f8f6f3;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .treatment-detail::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 40%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(139, 69, 19, 0.04) 0%, transparent 70%);
+            transform: rotate(15deg);
+            z-index: 0;
+        }
+        .treatment-detail::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 30%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(160, 82, 45, 0.06) 0%, transparent 70%);
+            transform: rotate(-10deg);
+            z-index: 0;
         }
         .treatment-header {
             text-align: center;
@@ -28,22 +53,576 @@
             margin-bottom: 2rem;
         }
         .treatment-content {
-            background-color: var(--white);
+            background: #fefefe;
             padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px var(--shadow);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(139, 69, 19, 0.15), 0 10px 20px rgba(139, 69, 19, 0.08);
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .treatment-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 60px rgba(139, 69, 19, 0.2), 0 15px 30px rgba(139, 69, 19, 0.12);
+        }
+        .treatment-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #8B4513;
+        }
+        .title-section {
+            margin-bottom: 2rem;
         }
         .treatment-content h1 {
-            color: var(--text-color);
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
+            color: #8B4513;
+            font-size: 2rem;
+            margin: 0;
             text-align: center;
             font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .treatment-content h1:hover {
+            color: #A0522D;
+            transform: scale(1.02);
+        }
+        .treatment-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #8B4513;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .treatment-content h1:hover::after {
+            width: 120px;
+            background: #A0522D;
         }
         .treatment-content p {
             margin-bottom: 1.5rem;
             line-height: 1.8;
             font-size: 1.1rem;
+            color: #6B4423;
+            transition: all 0.3s ease;
+        }
+        .treatment-content p:hover {
+            color: #8B4513;
+            transform: translateX(5px);
+        }
+        .intro-section {
+            background: #f7f3f0;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            border-left: 5px solid #8B4513;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .intro-content {
+            flex: 1;
+        }
+        .intro-section:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 35px rgba(139, 69, 19, 0.15);
+            border-left-color: #A0522D;
+        }
+        .image-wrapper {
+            width: 320px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 15px;
+            flex-shrink: 0;
+            background-color: #f7f3f0;
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .background-image {
+            max-width: 120%;
+            width: auto;
+            height: auto;
+            position: relative;
+            top: -8%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(139, 69, 19, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+        .intro-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(160, 82, 45, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-20px, 20px);
+        }
+        .detail-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .detail-box {
+            background: #A47148;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(164, 113, 72, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+        .detail-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #D4A373;
+            transition: all 0.3s ease;
+        }
+        .detail-box:hover {
+            background: #B8845A;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(164, 113, 72, 0.4);
+        }
+        .detail-box:hover::before {
+            background: #E6C9A8;
+            height: 5px;
+        }
+        .detail-box h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #F5DEB3;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .detail-box:hover h3 {
+            color: #FFFFFF;
+            transform: scale(1.05);
+        }
+        .detail-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            color: #FFFFFF;
+        }
+        .detail-box:hover p {
+            transform: scale(1.02);
+        }
+        .price-section {
+            background: linear-gradient(135deg, #f7f3f0 0%, #faf8f5 100%);
+            padding: 1.5rem;
+            border-radius: 18px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            position: relative;
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .price-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(212, 163, 115, 0.3) 50%, transparent 100%);
+        }
+        .price-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(139, 69, 19, 0.15);
+        }
+        .price-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #8B4513;
+            transition: all 0.3s ease;
+        }
+        .price-section:hover::before {
+            background: #A0522D;
+            height: 5px;
+        }
+        .price-section h2 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #8B4513;
+            font-size: 1.8rem;
+            font-weight: 600;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .price-section h2:hover {
+            color: #A0522D;
+            transform: scale(1.05);
+        }
+        .price-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #8B4513;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .price-section h2:hover::after {
+            width: 120px;
+            background: #A0522D;
+        }
+        .price-category {
+            margin-bottom: 1rem;
+            position: relative;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            border: 1px solid rgba(212, 163, 115, 0.2);
+        }
+        .price-category h3 {
+            color: #8B4513;
+            margin-bottom: 0.7rem;
+            font-size: 1rem;
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #A0522D;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .price-category h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #A0522D 0%, #CD853F 100%);
+            transition: width 0.3s ease;
+        }
+        .price-category h3:hover {
+            color: #A0522D;
+            transform: translateX(5px);
+        }
+        .price-category h3:hover::after {
+            width: 100%;
+        }
+        .price-item {
+            padding: 0.8rem;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 8px;
+            margin-bottom: 0.6rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 248, 245, 0.98) 100%);
+            border: 1px solid rgba(212, 163, 115, 0.15);
+        }
+        .price-item > div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .price-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+        }
+        .price-value-single {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.2rem;
+        }
+        .price-value-label {
+            color: #8B7355;
+            font-size: 0.7rem;
+            font-weight: 500;
+            font-style: italic;
+            text-transform: lowercase;
+        }
+        .price-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #8B4513;
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        .price-item:hover {
+            background: linear-gradient(135deg, rgba(247, 243, 240, 0.98) 0%, rgba(255, 255, 255, 1) 100%);
+            padding-left: 1.8rem;
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15), 0 0 0 1px rgba(164, 113, 72, 0.2);
+            border-color: rgba(212, 163, 115, 0.3);
+        }
+        .price-item:hover::before {
+            transform: scaleY(1);
+        }
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        .price-item strong {
+            color: #6B4423;
+            font-size: 1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            flex: 1;
+            line-height: 1.3;
+        }
+        .price-item:hover strong {
+            color: #8B4513;
+            transform: scale(1.02);
+        }
+        .price-value {
+            color: #8B4513;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-shadow: 0 1px 2px rgba(139, 69, 19, 0.1);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        .price-item:hover .price-value {
+            color: #A0522D;
+            transform: scale(1.05);
+        }
+        .price-savings {
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding: 0.5rem;
+            background: linear-gradient(135deg, rgba(160, 82, 45, 0.12) 0%, rgba(164, 113, 72, 0.08) 100%);
+            border-radius: 6px;
+            border: 2px solid #A0522D;
+            position: relative;
+            overflow: hidden;
+        }
+        .price-savings::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #A0522D 0%, #CD853F 50%, #A0522D 100%);
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .price-savings-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-bottom: 0.1rem;
+        }
+        .price-savings-badge {
+            background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%);
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(160, 82, 45, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+        }
+        .price-savings-text {
+            color: #6B4423;
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+        .price-savings-prices {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.1rem;
+        }
+        .price-original {
+            color: #6B4423;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-decoration: line-through;
+            opacity: 0.8;
+            white-space: nowrap;
+        }
+        .price-savings-amount {
+            color: #A0522D;
+            font-weight: 700;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+        .price-topup {
+            margin-top: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.6rem;
+            background: linear-gradient(135deg, rgba(139, 115, 85, 0.08) 0%, rgba(205, 133, 63, 0.05) 100%);
+            border-radius: 5px;
+            border-left: 2px solid #CD853F;
+            position: relative;
+        }
+        .price-topup-label {
+            color: #8B7355;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .price-topup-amount {
+            color: #8B4513;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+        .back-button {
+            display: inline-block;
+            background: #6B4423;
+            color: #FFFFFF;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(107, 68, 35, 0.4);
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .back-button:hover {
+            background: #8B4513;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(107, 68, 35, 0.5);
+        }
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            font-size: 2rem;
+            animation-delay: 0s;
+        }
+        .floating-element:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            font-size: 1.5rem;
+            animation-delay: 2s;
+        }
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            font-size: 1.8rem;
+            animation-delay: 4s;
+        }
+        .floating-element:nth-child(4) {
+            bottom: 15%;
+            right: 25%;
+            font-size: 1.2rem;
+            animation-delay: 1s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        .section-divider {
+            height: 2px;
+            background: #8B4513;
+            margin: 3rem 0;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+        .section-divider:hover {
+            background: #A0522D;
+            height: 3px;
         }
         .benefits-list, .indications-list {
             list-style: none;
@@ -69,24 +648,38 @@
         .back-button {
             display: inline-block;
             margin-top: 2rem;
-            color: #b45309;
+            color: #FFFFFF;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            background: #6B4423;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(107, 68, 35, 0.4);
         }
         .back-button:hover {
-            color: var(--text-color);
+            background: #8B4513;
+            color: #FFFFFF;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(107, 68, 35, 0.5);
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
+            <div class="logo">
+                <span>Skinity</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="skinity.html#home">Home</a></li>
                 <li><a href="skinity.html#treatments">Treatments</a></li>
                 <li><a href="skinity.html#about">Meet Sofia</a></li>
                 <li><a href="skinity.html#contact">Contact</a></li>
-                <li><a href="price-list.html">Price List</a></li>
                 <li><a href="combination-packages.html">Combination Packages</a></li>
                 <li><a href="faq.html">FAQ</a></li>
             </ul>
@@ -100,92 +693,180 @@
 
     <section class="treatment-detail">
         <div class="treatment-content">
-            <h1>Skinboosters</h1>
+                    <div class="title-section">
+                        <h1>Skinboosters - Deep Hydration and Rejuvenation</h1>
+                    </div>
             
-            <p>Skinboosters are treatments often described as injectable "serums," using high-quality substances to deliver deep hydration and revitalize your skin from within. Many skinboosters contain hyaluronic acid, which improves skin texture, firmness, and luminosity by stimulating natural collagen production, resulting in a healthy, radiant glow.</p>
+            <div class="intro-section">
+                <div class="intro-content">
+                    <p style="margin-bottom: 0.5rem; font-size: 1rem;"><strong>What are Skin Boosters?</strong></p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">Skin boosters are advanced injectable treatments that go beyond regular skincare, working at a cellular level to deeply hydrate, nourish, and rejuvenate the skin from within. They improve texture, elasticity, firmness, and radiance, soften fine lines, and restore a healthy, youthful glow — leaving the skin smoother, plumper, and naturally luminous.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">At our clinic, we use only premium, science-backed formulations, chosen for their safety, effectiveness, and celebrity-approved results — loved by Hailey Bieber, Jennifer Aniston, and the Kardashians.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">We offer two exclusive ranges:</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Classic Icons – Profhilo and Seventy Hyal 2000:</strong> hyaluronic acid boosters that restore hydration, firmness, and glow for timeless, radiant skin.</p>
+                    <p style="margin-bottom: 0; font-size: 0.95rem;"><strong>Next-Generation Boosters – Vitaran Eyes, Vitaran I, and Vitaran II:</strong> revolutionary salmon DNA polynucleotide boosters that stimulate collagen, elastin, and cellular regeneration for deep, transformative rejuvenation.</p>
+                </div>
+                <div class="image-wrapper">
+                    <img src="vitaranskinbooster.png" alt="Skinboosters" class="background-image">
+                </div>
+            </div>
 
-            <p>Additionally, there are skinboosters based on polynucleotides, such as Lumieyes, which work to regenerate and repair the skin, especially in the delicate eye area, helping reduce dark circles, fine lines, and signs of fatigue.</p>
+            <div class="section-divider"></div>
 
-            <p>They are suitable for all ages: some products are ideal for mature skin, focusing on firmness and reducing deeper wrinkles, while others are perfect for those wanting to treat the first signs of aging, such as loss of hydration and fine lines. We also offer specific options for acne-prone skin, helping to improve texture and reduce imperfections.</p>
+            <div class="detail-boxes">
+                <div class="detail-box">
+                    <h3>Product types</h3>
+                    <p>Hyaluronic Acid and Polynucleotide (Salmon DNA) Boosters</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Treatment time</h3>
+                    <p>30–45 minutes</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Downtime</h3>
+                    <p>Minimal (small injection points may be visible for 24–48 hours)</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Full effect</h3>
+                    <p>Gradually visible over 2–4 weeks</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Longevity</h3>
+                    <p>6–12 months (depending on product and area)</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Skin benefit</h3>
+                    <p>Stimulates cellular regeneration, collagen, and elastin production</p>
+                </div>
+            </div>
 
-            <p>We work with leading brands such as Lumipro, Profhilo, Restylane, and Seventy Hyal 2000 (hyaluronic acid) and Lumieyes (polynucleotides), ensuring incredible and personalized results for each client.</p>
+            <div class="detail-boxes">
+                <div class="detail-box">
+                    <h3>Follow-up</h3>
+                    <p>Recommended course of 2–3 sessions for optimal results</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Consultation</h3>
+                    <p>Complimentary consultation prior to treatment</p>
+                </div>
+            </div>
 
-            <h2 class="section-title">Quick Recovery</h2>
-            <p>Skinboosters require minimal recovery time. Some redness or slight swelling may occur in the treated area, but these effects usually disappear within 24 to 48 hours. Most people resume their daily activities immediately after treatment.</p>
+            <div class="section-divider"></div>
 
-            <h2 class="section-title">Comparison of Facial Skinboosters</h2>
-            <p>All the skinboosters listed below aim to improve skin quality but differ in composition, depth of action, and the specific needs they address. Here is a complete guide to help clients understand which might be best suited for their skin.</p>
-
-            <table style="width: 100%; border-collapse: collapse; margin: 2rem 0; background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                <thead>
-                    <tr style="background-color: var(--text-color); color: white;">
-                        <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #ddd; font-family: 'Playfair Display', serif;">Product</th>
-                        <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #ddd; font-family: 'Playfair Display', serif;">Composition</th>
-                        <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #ddd; font-family: 'Playfair Display', serif;">Recommended For</th>
-                        <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #ddd; font-family: 'Playfair Display', serif;">Purpose</th>
-                        <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #ddd; font-family: 'Playfair Display', serif;">Protocol</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 1rem; font-weight: bold; color: var(--text-color);">🔹 Seventy Hyal 2000</td>
-                        <td style="padding: 1rem;">Non-crosslinked hyaluronic acid (2000 kDa)</td>
-                        <td style="padding: 1rem;">
-                            • Young skin or early signs of aging<br>
-                            • Dull, dehydrated skin
-                        </td>
-                        <td style="padding: 1rem;">Deep hydration and visible glow</td>
-                        <td style="padding: 1rem;">3 sessions + 1 maintenance</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee; background-color: #faf8f5;">
-                        <td style="padding: 1rem; font-weight: bold; color: var(--text-color);">🔹 Restylane® Skinboosters</td>
-                        <td style="padding: 1rem;">Stabilized hyaluronic acid (NASHA™/OBT™)</td>
-                        <td style="padding: 1rem;">
-                            • Mature, damaged skin<br>
-                            • Irregular texture, loss of firmness
-                        </td>
-                        <td style="padding: 1rem;">Deep skin restructuring</td>
-                        <td style="padding: 1rem;">3 sessions + 1 maintenance</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 1rem; font-weight: bold; color: var(--text-color);">🔹 Profhilo®</td>
-                        <td style="padding: 1rem;">H-HA + L-HA (non-crosslinked)</td>
-                        <td style="padding: 1rem;">
-                            • Mild to moderate sagging<br>
-                            • Loss of firmness and elasticity
-                        </td>
-                        <td style="padding: 1rem;">Stimulate collagen and elastin</td>
-                        <td style="padding: 1rem;">2 sessions + 1 maintenance</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee; background-color: #faf8f5;">
-                        <td style="padding: 1rem; font-weight: bold; color: var(--text-color);">🔹 LumiPro</td>
-                        <td style="padding: 1rem;">Hyaluronic acid + antioxidants and peptides</td>
-                        <td style="padding: 1rem;">
-                            • Dull, stressed, or fatigued skin<br>
-                            • Overall texture improvement
-                        </td>
-                        <td style="padding: 1rem;">Refresh, illuminate, and hydrate</td>
-                        <td style="padding: 1rem;">3 sessions + 1 maintenance</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem; font-weight: bold; color: var(--text-color);">🔹 Lumi Eyes</td>
-                        <td style="padding: 1rem;">Polynucleotides (no hyaluronic acid)</td>
-                        <td style="padding: 1rem;">
-                            • Dark circles, fine lines around eyes<br>
-                            • Tired eyes, fluid retention
-                        </td>
-                        <td style="padding: 1rem;">Regenerate eye area tissues</td>
-                        <td style="padding: 1rem;">3 sessions + 1 maintenance</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="price-section">
+                <h2>Treatments Price Guide</h2>
+                
+                <div class="price-category">
+                    <h3>Face Rejuvenation</h3>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Vitaran I - Polynucleotide Booster (Salmon DNA) for Firmness and Regeneration</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">£240</span>
+                                    <span class="price-value-label">Per session</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £60</span>
+                                    <div class="price-savings-prices">
+                                        <div class="price-original">£720</div>
+                                        <div class="price-savings-amount">£685</div>
+                                    </div>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions (4 weeks apart)</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Top up (after 4-6 months) for existing clients:</span>
+                                <span class="price-topup-amount">£230</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Seventy Hyal 2000 - Bio-stimulating for Deep Hydration</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">£135</span>
+                                    <span class="price-value-label">Per session</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £60</span>
+                                    <div class="price-savings-prices">
+                                        <div class="price-original">£405</div>
+                                        <div class="price-savings-amount">£345</div>
+                                    </div>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Top up for existing clients:</span>
+                                <span class="price-topup-amount">£125</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Profhilo - Classic Hyaluronic Acid Bio-Remodeller for Lift and Glow</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">£450</span>
+                                    <span class="price-value-label">Initial Course (2 sessions)</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £60</span>
+                                    <div class="price-savings-prices">
+                                        <div class="price-original">£710</div>
+                                        <div class="price-savings-amount">£650</div>
+                                    </div>
+                                </div>
+                                <div class="price-savings-text">Full Plan: 2 sessions + 6 months top up</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Top up for existing clients:</span>
+                                <span class="price-topup-amount">£220</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="price-category">
+                    <h3>Eye Rejuvenation</h3>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Vitaran I / Eyes - Polynucleotide Booster (Salmon DNA) for Deep Hydration and Cellular Renewal</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">£150</span>
+                                    <span class="price-value-label">Per session</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £60</span>
+                                    <div class="price-savings-prices">
+                                        <div class="price-original">£450</div>
+                                        <div class="price-savings-amount">£425</div>
+                                    </div>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions (3 weeks apart)</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Top up (after 4-6 months) for existing clients:</span>
+                                <span class="price-topup-amount">£135</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <a href="skinity.html#treatments" class="back-button">← Back to Treatments</a>
         </div>
     </section>
-
-    <div class="logo">
-        <span>Skinity</span>
-    </div>
 </body>
 </html> 

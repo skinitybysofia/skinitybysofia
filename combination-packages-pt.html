@@ -5,35 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacotes de Combinação - Skinity</title>
     <link rel="stylesheet" href="skinity.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .combination-packages {
             padding: 120px 5% 4rem;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
+            background: linear-gradient(135deg, #f8f6f3 0%, #e8e4d9 100%);
         }
-        .package-image-container {
+        .packages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .package-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e6e0d5;
+        }
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        .package-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+        .package-description {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        .package-items {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .package-items li {
+            padding: 0.5rem 0;
+            color: #555;
+            font-size: 1rem;
+            border-bottom: 1px solid #f0ede8;
+        }
+        .package-items li:last-child {
+            border-bottom: none;
+        }
+        .package-items li:before {
+            content: "✓ ";
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        .package-price-section {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #f0ede8;
+        }
+        .price-row {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            margin: 0.5rem 0;
         }
-        .package-image {
-            width: 100%;
-            height: auto;
-            max-width: 600px;
-            border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+        .original-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.9rem;
         }
-        .error-message {
-            color: red;
+        .current-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color);
+            font-family: 'Playfair Display', serif;
+        }
+        .savings {
+            color: #d32f2f;
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: #ffebee;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        .section-title {
             text-align: center;
-            margin: 1rem 0;
-            display: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .back-button {
+            display: inline-block;
+            background: #6B4423;
+            color: #FFFFFF;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(107, 68, 35, 0.4);
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .back-button:hover {
+            background: #8B4513;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(107, 68, 35, 0.5);
         }
         @media (max-width: 768px) {
-            .package-image {
+            .packages-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .package-card {
+                padding: 1.5rem;
+            }
+            .package-title {
+                font-size: 1.5rem;
+            }
+            .current-price {
+                font-size: 1.5rem;
+            }
+            .back-button {
+                width: 100%;
                 max-width: 100%;
+                margin-top: 2rem;
             }
         }
     </style>
@@ -47,9 +174,8 @@
                 <li><a href="skinity-pt.html#treatments">Tratamentos</a></li>
                 <li><a href="skinity-pt.html#about">Enf. Inês Sofia Pires</a></li>
                 <li><a href="skinity-pt.html#contact">Contacto</a></li>
-                <li><a href="price-list-pt.html">Preçário</a></li>
                 <li><a href="combination-packages-pt.html" class="active">Combinações de Tratamentos</a></li>
-                <li><a href="skinity-pt.html#qa">FAQ</a></li>
+                <li><a href="faq-pt.html">FAQ</a></li>
             </ul>
             <div class="language-switcher">
                 <a href="combination-packages.html">EN</a>
@@ -60,21 +186,81 @@
     </header>
 
     <section class="combination-packages">
-        <div class="package-image-container">
-            <img src="./price3.png" alt="Pacotes de Combinação" class="package-image" onerror="handleImageError(this)">
+        <h1 class="section-title">Pacotes Combinados</h1>
+        <p class="section-subtitle">Poupe mais com as nossas combinações de tratamentos especialmente selecionadas</p>
+        
+        <div class="packages-container">
+            <!-- Pack Essência -->
+            <div class="package-card">
+                <h2 class="package-title">Pack Essência</h2>
+                <p class="package-description">Perfeito para clientes que procuram rejuvenescimento facial e cuidado dos olhos</p>
+                <ul class="package-items">
+                    <li>Microneedling PRP Rosto</li>
+                    <li>Vitaran Eyes</li>
+                </ul>
+                <div class="package-price-section">
+                    <div class="price-row">
+                        <span class="original-price">Antes: €169</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="current-price">€139</span>
+                        <span class="savings">Poupa €30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pack Lumina -->
+            <div class="package-card">
+                <h2 class="package-title">Pack Lumina</h2>
+                <p class="package-description">Perfeito para clientes que procuram hidratação profunda e regeneração celular</p>
+                <ul class="package-items">
+                    <li>Vitaran Eyes</li>
+                    <li>Vitaran Face</li>
+                </ul>
+                <div class="package-price-section">
+                    <div class="price-row">
+                        <span class="original-price">Antes: €219</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="current-price">€189</span>
+                        <span class="savings">Poupa €30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pack Revive -->
+            <div class="package-card">
+                <h2 class="package-title">Pack Revive</h2>
+                <p class="package-description">Perfeito para clientes que procuram estimulação capilar e rejuvenescimento facial completo</p>
+                <ul class="package-items">
+                    <li>Microneedling PRP Couro Cabeludo</li>
+                    <li>Vitaran Face</li>
+                    <li>Vitaran Eyes</li>
+                </ul>
+                <div class="package-price-section">
+                    <div class="price-row">
+                        <span class="original-price">Antes: €305</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="current-price">€265</span>
+                        <span class="savings">Poupa €40</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="error-message">Image failed to load. Please try refreshing the page.</div>
+        
+        <a href="skinity-pt.html" class="back-button">← Voltar ao Início</a>
     </section>
 
     <script>
-        function handleImageError(img) {
-            console.error('Failed to load image:', img.src);
-            img.style.display = 'none';
-            document.querySelector('.error-message').style.display = 'block';
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('open');
+            });
         }
-
-        // Log when image loads successfully
-        document.querySelector('.package-image').onload = () => console.log('Successfully loaded:', document.querySelector('.package-image').src);
     </script>
 </body>
-</html> 
+</html>

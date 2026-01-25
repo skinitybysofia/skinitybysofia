@@ -5,35 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Combination Packages - Skinity</title>
     <link rel="stylesheet" href="skinity.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .combination-packages {
             padding: 120px 5% 4rem;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
+            background: linear-gradient(135deg, #f8f6f3 0%, #e8e4d9 100%);
         }
-        .package-image-container {
+        .packages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .package-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e6e0d5;
+        }
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        .package-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+        .package-description {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        .package-items {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .package-items li {
+            padding: 0.5rem 0;
+            color: #555;
+            font-size: 1rem;
+            border-bottom: 1px solid #f0ede8;
+        }
+        .package-items li:last-child {
+            border-bottom: none;
+        }
+        .package-items li:before {
+            content: "✓ ";
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        .package-price-section {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #f0ede8;
+        }
+        .price-row {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.5rem 0;
+        }
+        .original-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+        }
+        .current-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color);
+            font-family: 'Playfair Display', serif;
+        }
+        .savings {
+            color: #d32f2f;
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: #ffebee;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        .item-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            font-family: 'Playfair Display', serif;
+        }
+        .package-items li {
+            padding: 0.5rem 0;
+            color: #555;
+            font-size: 1rem;
+            border-bottom: 1px solid #f0ede8;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
-        .package-image {
-            width: 100%;
-            height: auto;
-            max-width: 600px;
-            border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
-        }
-        .error-message {
-            color: red;
+        .section-title {
             text-align: center;
-            margin: 1rem 0;
-            display: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
         }
         @media (max-width: 768px) {
-            .package-image {
-                max-width: 100%;
+            .packages-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .package-card {
+                padding: 1.5rem;
+            }
+            .package-title {
+                font-size: 1.5rem;
+            }
+            .current-price {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -47,7 +154,6 @@
                 <li><a href="skinity.html#treatments">Treatments</a></li>
                 <li><a href="skinity.html#about">Meet Sofia</a></li>
                 <li><a href="skinity.html#contact">Contact</a></li>
-                <li><a href="price-list.html">Price List</a></li>
                 <li><a href="combination-packages.html" class="active">Combination Packages</a></li>
                 <li><a href="faq.html">FAQ</a></li>
             </ul>
@@ -60,21 +166,139 @@
     </header>
 
     <section class="combination-packages">
-        <div class="package-image-container">
-            <img src="./price3.png" alt="Combination Packages" class="package-image" onerror="handleImageError(this)">
+        <h1 class="section-title">Combination Packages</h1>
+        <p class="section-subtitle">Save more with our specially curated treatment combinations</p>
+        
+        <div class="packages-container">
+            <!-- Package 1: Glow and Contour -->
+            <div class="package-card">
+                <h2 class="package-title">Glow and Contour</h2>
+                <p class="package-description">Perfect for clients seeking lip volume, wrinkles softening and facial refresh</p>
+                <ul class="package-items">
+                    <li>1.1mL Lip Filler</li>
+                    <li>Vitaran I (3 sessions)</li>
+                    <li>Botox 3 Areas</li>
+                </ul>
+                <div class="package-price-section">
+                    <div class="price-row">
+                        <span class="original-price">Before: £870</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="current-price">£720</span>
+                        <span class="savings">Save £150</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 2: Youthful Essentials -->
+            <div class="package-card">
+                <h2 class="package-title">Youthful Essentials</h2>
+                <p class="package-description">Perfect for clients seeking wrinkle reduction and a refreshed appearance</p>
+                <ul class="package-items">
+                    <li>5 areas Botox <span class="item-price">£475</span></li>
+                    <li>6 areas Botox <span class="item-price">£625</span></li>
+                    <li>7 areas Botox <span class="item-price">£775</span></li>
+                </ul>
+                <div class="package-price-section">
+                    <div class="price-row">
+                        <span class="savings">Save £50 in total</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 3: Bright Eyes Trio -->
+            <div class="package-card">
+                <h2 class="package-title">Bright Eyes Trio</h2>
+                <p class="package-description">Perfect for clients seeking eye rejuvenation, wrinkle reduction and deep hydration</p>
+                <ul class="package-items">
+                    <li>Vitaran Eyes (course of 3)</li>
+                    <li>Botox 3 Areas</li>
+                </ul>
+                <div class="package-price-section">
+                    <div class="price-row">
+                        <span class="original-price">Before: £670</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="current-price">£499</span>
+                        <span class="savings">Save £150</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 4: Hot Girl Essentials -->
+            <div class="package-card">
+                <h2 class="package-title">Hot Girl Essentials</h2>
+                <p class="package-description">Perfect for clients wanting enhanced facial volume, fuller lips and wrinkle reduction</p>
+                <ul class="package-items">
+                    <li>Cheek Augmentation 1mL</li>
+                    <li>1.1mL Lip Filler</li>
+                    <li>Botox 3 Areas</li>
+                </ul>
+                <div class="package-price-section">
+                    <div class="price-row">
+                        <span class="original-price">Before: £655</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="current-price">£599</span>
+                        <span class="savings">Save £55</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 5: Scalp Regrowth Plan -->
+            <div class="package-card">
+                <h2 class="package-title">Scalp Regrowth Plan</h2>
+                <p class="package-description">Perfect for clients aiming to stimulate scalp rejuvenation and boost hair growth</p>
+                <ul class="package-items">
+                    <li>Microneedling PRP Scalp (2 courses)</li>
+                    <li>Microneedling + Growth Factors Scalp (2 courses)</li>
+                </ul>
+                <div class="package-price-section">
+                    <div class="price-row">
+                        <span class="original-price">Before: £880</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="current-price">£760</span>
+                        <span class="savings">Save £120</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 6: Flawless Skin -->
+            <div class="package-card">
+                <h2 class="package-title">Flawless Skin</h2>
+                <p class="package-description">Perfect for clients seeking refreshed eyes and revitalized skin with natural glow</p>
+                <ul class="package-items">
+                    <li>Vitaran I (3 sessions)</li>
+                    <li>PRP Face and Lips (3 sessions)</li>
+                </ul>
+                <div class="package-price-section">
+                    <div class="price-row">
+                        <span class="original-price">Before: £1,125</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="current-price">£745</span>
+                        <span class="savings">Save £380</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 7: Body Sculpting Combos -->
+            <div class="package-card">
+                <h2 class="package-title">Body Sculpting Combos</h2>
+                <p class="package-description">Perfect for clients targeting stubborn fat reduction and body contouring in key areas</p>
+                <ul class="package-items">
+                    <li>3 Sessions: 1 Large + 1 Small Area <span class="item-price">£680</span></li>
+                    <li>3 Sessions: 2 Large Areas <span class="item-price">£860</span></li>
+                    <li>3 Sessions: 2 Large + 1 Small Area <span class="item-price">£1,220</span></li>
+                </ul>
+                <div class="package-price-section">
+                    <div class="price-row">
+                        <span class="savings">Save £220</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="error-message">Image failed to load. Please try refreshing the page.</div>
     </section>
-
-    <script>
-        function handleImageError(img) {
-            console.error('Failed to load image:', img.src);
-            img.style.display = 'none';
-            document.querySelector('.error-message').style.display = 'block';
-        }
-
-        // Log when image loads successfully
-        document.querySelector('.package-image').onload = () => console.log('Successfully loaded:', document.querySelector('.package-image').src);
-    </script>
 </body>
-</html> 
+</html>

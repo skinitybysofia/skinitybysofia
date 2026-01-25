@@ -81,12 +81,16 @@
             <div class="logo">
                 <span>Skinity</span>
             </div>
-            <ul class="nav-links">
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="skinity-pt.html#home">Início</a></li>
                 <li><a href="skinity-pt.html#treatments">Tratamentos</a></li>
                 <li><a href="skinity-pt.html#about">Conheça Sofia</a></li>
                 <li><a href="skinity-pt.html#contact">Contacto</a></li>
-                <li><a href="price-list-pt.html">Lista de Preços</a></li>
                 <li><a href="combination-packages-pt.html">Pacotes Combinados</a></li>
                 <li><a href="faq-pt.html">FAQ</a></li>
             </ul>
@@ -154,5 +158,16 @@
             <a href="skinity-pt.html#treatments" class="back-button">← Voltar aos Tratamentos</a>
         </div>
     </section>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('open');
+            });
+        }
+    </script>
 </body>
 </html> 

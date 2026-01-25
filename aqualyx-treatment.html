@@ -11,10 +11,35 @@
     <link href="https://fonts.cdnfonts.com/css/rasputin" rel="stylesheet">
     <style>
         .treatment-detail {
-            padding: 120px 5% 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: #faf8f5;
+            padding: 120px 0 4rem;
+            max-width: 100%;
+            margin: 0;
+            background: #f8f6f3;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .treatment-detail::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 40%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(139, 69, 19, 0.04) 0%, transparent 70%);
+            transform: rotate(15deg);
+            z-index: 0;
+        }
+        .treatment-detail::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 30%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(160, 82, 45, 0.06) 0%, transparent 70%);
+            transform: rotate(-10deg);
+            z-index: 0;
         }
         .treatment-header {
             text-align: center;
@@ -28,53 +53,572 @@
             margin-bottom: 2rem;
         }
         .treatment-content {
-            background-color: var(--white);
+            background: #fefefe;
             padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px var(--shadow);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(139, 69, 19, 0.15), 0 10px 20px rgba(139, 69, 19, 0.08);
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .treatment-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 60px rgba(139, 69, 19, 0.2), 0 15px 30px rgba(139, 69, 19, 0.12);
+        }
+        .treatment-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #8B4513;
+        }
+        .title-section {
+            margin-bottom: 2rem;
         }
         .treatment-content h1 {
-            color: var(--text-color);
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
+            color: #8B4513;
+            font-size: 2rem;
+            margin: 0;
             text-align: center;
             font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .treatment-content h1:hover {
+            color: #A0522D;
+            transform: scale(1.02);
+        }
+        .treatment-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #8B4513;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .treatment-content h1:hover::after {
+            width: 120px;
+            background: #A0522D;
         }
         .treatment-content p {
             margin-bottom: 1.5rem;
             line-height: 1.8;
             font-size: 1.1rem;
+            color: #6B4423;
+            transition: all 0.3s ease;
         }
-        .benefits-list, .indications-list {
-            list-style: none;
-            margin: 2rem 0;
+        .treatment-content p:hover {
+            color: #8B4513;
+            transform: translateX(5px);
         }
-        .benefits-list li, .indications-list li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
+        .intro-section {
+            background: #f7f3f0;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            border-left: 5px solid #8B4513;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .intro-content {
+            flex: 1;
+        }
+        .intro-section:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 35px rgba(139, 69, 19, 0.15);
+            border-left-color: #A0522D;
+        }
+        .image-wrapper {
+            width: 280px;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 15px;
+            flex-shrink: 0;
+            background-color: #f7f3f0;
+            padding: 10px;
+            box-sizing: border-box;
             position: relative;
         }
-        .benefits-list li:before, .indications-list li:before {
-            content: "•";
-            color: var(--secondary-color);
-            position: absolute;
-            left: 0;
+        .background-image {
+            max-width: 120%;
+            width: auto;
+            height: auto;
+            position: relative;
+            top: -8%;
+            left: 50%;
+            transform: translateX(-50%);
         }
-        .section-title {
-            color: var(--text-color);
-            font-size: 1.2rem;
-            margin: 2rem 0 1rem;
-            font-family: 'Playfair Display', serif;
+        .intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(139, 69, 19, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+        .intro-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(160, 82, 45, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-20px, 20px);
+        }
+        .detail-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .detail-box {
+            background: #A47148;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(164, 113, 72, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+        .detail-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #D4A373;
+            transition: all 0.3s ease;
+        }
+        .detail-box:hover {
+            background: #B8845A;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(164, 113, 72, 0.4);
+        }
+        .detail-box:hover::before {
+            background: #E6C9A8;
+            height: 5px;
+        }
+        .detail-box h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #F5DEB3;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .detail-box:hover h3 {
+            color: #FFFFFF;
+            transform: scale(1.05);
+        }
+        .detail-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            color: #FFFFFF;
+        }
+        .detail-box:hover p {
+            transform: scale(1.02);
         }
         .back-button {
             display: inline-block;
-            margin-top: 2rem;
-            color: #b45309;
+            background: #6B4423;
+            color: #FFFFFF;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(107, 68, 35, 0.4);
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
         .back-button:hover {
-            color: var(--text-color);
+            background: #8B4513;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(107, 68, 35, 0.5);
+        }
+        .section-divider {
+            height: 2px;
+            background: #8B4513;
+            margin: 3rem 0;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+        .section-divider:hover {
+            background: #A0522D;
+            height: 3px;
+        }
+        .section-title {
+            color: #8B4513;
+            font-size: 1.1rem;
+            margin: 2rem 0 1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #A0522D;
+            display: inline-block;
+        }
+        .benefits-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        .benefits-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #6B4423;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        .benefits-list li:before {
+            content: "•";
+            color: #A0522D;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .price-section {
+            background: linear-gradient(135deg, #f7f3f0 0%, #faf8f5 100%);
+            padding: 1.5rem;
+            border-radius: 18px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            position: relative;
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .price-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(212, 163, 115, 0.3) 50%, transparent 100%);
+        }
+        .price-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(139, 69, 19, 0.15);
+        }
+        .price-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #8B4513;
+            transition: all 0.3s ease;
+        }
+        .price-section:hover::before {
+            background: #A0522D;
+            height: 5px;
+        }
+        .price-section h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #8B4513;
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .price-section h2:hover {
+            color: #A0522D;
+            transform: scale(1.05);
+        }
+        .price-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #8B4513;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .price-section h2:hover::after {
+            width: 120px;
+            background: #A0522D;
+        }
+        .price-category {
+            margin-bottom: 1rem;
+            position: relative;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            border: 1px solid rgba(212, 163, 115, 0.2);
+        }
+        .price-category h3 {
+            color: #8B4513;
+            margin-bottom: 0.7rem;
+            font-size: 1rem;
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #A0522D;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .price-category h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #A0522D 0%, #CD853F 100%);
+            transition: width 0.3s ease;
+        }
+        .price-category h3:hover {
+            color: #A0522D;
+            transform: translateX(5px);
+        }
+        .price-category h3:hover::after {
+            width: 100%;
+        }
+        .price-item {
+            padding: 0.8rem;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 8px;
+            margin-bottom: 0.6rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 248, 245, 0.98) 100%);
+            border: 1px solid rgba(212, 163, 115, 0.15);
+        }
+        .price-item > div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .price-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+        }
+        .price-value-single {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.2rem;
+        }
+        .price-value-label {
+            color: #8B7355;
+            font-size: 0.7rem;
+            font-weight: 500;
+            font-style: italic;
+            text-transform: lowercase;
+        }
+        .price-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #8B4513;
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        .price-item:hover {
+            background: linear-gradient(135deg, rgba(247, 243, 240, 0.98) 0%, rgba(255, 255, 255, 1) 100%);
+            padding-left: 1.8rem;
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15), 0 0 0 1px rgba(164, 113, 72, 0.2);
+            border-color: rgba(212, 163, 115, 0.3);
+        }
+        .price-item:hover::before {
+            transform: scaleY(1);
+        }
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        .price-item strong {
+            color: #6B4423;
+            font-size: 1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            flex: 1;
+            line-height: 1.3;
+        }
+        .price-item:hover strong {
+            color: #8B4513;
+            transform: scale(1.02);
+        }
+        .price-value {
+            color: #8B4513;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-shadow: 0 1px 2px rgba(139, 69, 19, 0.1);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        .price-item:hover .price-value {
+            color: #A0522D;
+            transform: scale(1.05);
+        }
+        .price-savings {
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding: 0.5rem;
+            background: linear-gradient(135deg, rgba(160, 82, 45, 0.12) 0%, rgba(164, 113, 72, 0.08) 100%);
+            border-radius: 6px;
+            border: 2px solid #A0522D;
+            position: relative;
+            overflow: hidden;
+        }
+        .price-savings::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #A0522D 0%, #CD853F 50%, #A0522D 100%);
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .price-savings-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-bottom: 0.1rem;
+        }
+        .price-savings-badge {
+            background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%);
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(160, 82, 45, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+        }
+        .price-savings-text {
+            color: #6B4423;
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+        .price-savings-prices {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.1rem;
+        }
+        .price-original {
+            color: #6B4423;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-decoration: line-through;
+            opacity: 0.8;
+            white-space: nowrap;
+        }
+        .price-savings-amount {
+            color: #A0522D;
+            font-weight: 700;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+        .price-topup {
+            margin-top: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.6rem;
+            background: linear-gradient(135deg, rgba(139, 115, 85, 0.08) 0%, rgba(205, 133, 63, 0.05) 100%);
+            border-radius: 5px;
+            border-left: 2px solid #CD853F;
+            position: relative;
+        }
+        .price-topup-label {
+            color: #8B7355;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .price-topup-amount {
+            color: #8B4513;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+        .price-area-info {
+            color: #8B7355;
+            font-size: 0.75rem;
+            font-style: italic;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(212, 163, 115, 0.2);
         }
     </style>
 </head>
@@ -89,7 +633,6 @@
                 <li><a href="skinity.html#treatments">Treatments</a></li>
                 <li><a href="skinity.html#about">Meet Sofia</a></li>
                 <li><a href="skinity.html#contact">Contact</a></li>
-                <li><a href="price-list.html">Price List</a></li>
                 <li><a href="combination-packages.html">Combination Packages</a></li>
                 <li><a href="faq.html">FAQ</a></li>
             </ul>
@@ -103,39 +646,114 @@
 
     <section class="treatment-detail">
         <div class="treatment-content">
-            <h1>Aqualyx – Fat Dissolving Treatment</h1>
+            <div class="title-section">
+                <h1>Aqualyx - Fat Dissolving Treatment</h1>
+            </div>
             
-            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-bottom: 1.5rem;">
-                <p style="flex: 2 1 300px; min-width: 220px; margin-bottom: 0;">Aqualyx is a non-surgical treatment developed for the safe and effective elimination of small areas of localized fat that resist diet and exercise. It is especially popular for areas such as the double chin, arms, flanks, abdomen, and thighs.</p>
-                <img src="design3.png" alt="Aqualyx treatment areas" style="max-width: 320px; width: 100%; height: auto; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.07); flex: 1.2 1 200px; min-width: 140px;" />
+            <div class="intro-section">
+                <div class="intro-content">
+                    <p style="margin-bottom: 0.5rem; font-size: 1rem;"><strong>What is Aqualyx?</strong></p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">Aqualyx is an advanced injectable treatment designed to permanently reduce localized fat in areas like the double chin, jawline, and other stubborn pockets. Using deoxycholic acid, a naturally occurring molecule in the body, it safely dissolves fat cells, helping you achieve refined contours and a sculpted silhouette without surgery.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">Ideal for clients seeking subtle yet effective body and facial shaping, Aqualyx delivers gradual, natural-looking results, often visible after a few sessions. Each treatment takes only 30 minutes, with minimal downtime.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Clinically Proven and Trusted:</strong> Aqualyx is backed by robust scientific studies and trusted by aesthetic experts worldwide. The <strong>Aesthetic Surgery Journal (2021)</strong> confirmed safety and efficacy, showing significant improvements in facial and body contour with minimal side effects. The <strong>Journal of Cosmetic Dermatology (2015)</strong> demonstrated effective reduction of double chin fat, with visible results after a few sessions. These studies confirm that Aqualyx is a safe, effective, and reliable medical solution for non-surgical fat contouring.</p>
+                </div>
+                <div class="image-wrapper">
+                    <img src="aqualyxphto.png" alt="Aqualyx Cosmetic" class="background-image">
+                </div>
             </div>
 
-            <p>The active substance in Aqualyx is deoxycholic acid, a natural compound produced by our body that helps digest and eliminate fat. When injected directly into fat cells (adipose tissue), deoxycholic acid destroys the membrane of these cells, releasing the fat, which is then naturally eliminated through the lymphatic system and the body's metabolism.</p>
+            <div class="section-divider"></div>
 
-            <h2 class="section-title">Proven Safety and Effectiveness</h2>
-            <p>Aqualyx is appropriate and approved for medical use, with strict protocols to ensure patient safety.</p>
+            <div class="detail-boxes">
+                <div class="detail-box">
+                    <h3>Duration</h3>
+                    <p>30 minutes per session</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Downtime</h3>
+                    <p>Minimal (mild swelling, redness, or tenderness for 24–48 hours)</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Results</h3>
+                    <p>Gradually visible over 4–6 weeks; multiple sessions may be recommended</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Longevity</h3>
+                    <p>Permanent fat reduction in treated areas</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Consultation</h3>
+                    <p>Complimentary, tailored to your individual needs</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Customizable</h3>
+                    <p>Tailored sessions for the most natural, effective results</p>
+                </div>
+            </div>
 
-            <p>Unlike invasive treatments, it does not require general anesthesia, incisions, or long recovery times.</p>
+            <div class="section-divider"></div>
 
-            <p>The most common side effects are temporary and mild, such as redness, swelling, or local sensitivity, usually disappearing within a few days.</p>
-
-            <h2 class="section-title">Scientific Studies and Approval</h2>
-            <p>Numerous scientific studies validate the effectiveness of deoxycholic acid for localized fat reduction:</p>
-
-            <ul class="benefits-list">
-                <li>A review study published in the Aesthetic Surgery Journal in 2021 confirmed the safety and efficacy of deoxycholic acid for localized fat reduction, highlighting significant improvements in facial and body contour definition with minimal side effects.</li>
-                <li>A study published in the Journal of Cosmetic Dermatology (2015) demonstrated that deoxycholic acid is effective for reducing double chin fat, with visible results after a few sessions and minimal side effects.</li>
-            </ul>
-
-            <p>These data confirm that Aqualyx is a valid, safe, and effective medical solution for those seeking to contour localized fat without surgery.</p>
-
-            <h2 class="section-title">Why Choose Aqualyx?</h2>
-            <ul class="benefits-list">
-                <li>It is a minimally invasive treatment performed in-office, with quick and virtually painless sessions.</li>
-                <li>Ideal for those who want to avoid surgery and the risks associated with anesthesia or long recovery times.</li>
-                <li>Provides natural and gradual results without altering body shape but improving contour.</li>
-                <li>Suitable for various areas, especially zones difficult to treat with diet and exercise.</li>
-            </ul>
+            <div class="price-section">
+                <h2>Treatment Price Guide</h2>
+                
+                <div class="price-category">
+                    <h3>Small Areas</h3>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Single session</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">£120</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £50</span>
+                                    <div class="price-savings-prices">
+                                        <div class="price-original">£360</div>
+                                        <div class="price-savings-amount">£310</div>
+                                    </div>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Top up:</span>
+                                <span class="price-topup-amount">£110</span>
+                            </div>
+                            <div class="price-area-info">Smaller Body Areas: Arms, Double Chin</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="price-category">
+                    <h3>Large Areas</h3>
+                    <div class="price-item">
+                        <div>
+                            <div class="price-item-header">
+                                <strong>Single session</strong>
+                                <div class="price-value-single">
+                                    <span class="price-value">£180</span>
+                                </div>
+                            </div>
+                            <div class="price-savings">
+                                <div class="price-savings-header">
+                                    <span class="price-savings-badge">Save £50</span>
+                                    <div class="price-savings-prices">
+                                        <div class="price-original">£540</div>
+                                        <div class="price-savings-amount">£490</div>
+                                    </div>
+                                </div>
+                                <div class="price-savings-text">Course of 3 sessions</div>
+                            </div>
+                            <div class="price-topup">
+                                <span class="price-topup-label">Top up:</span>
+                                <span class="price-topup-amount">£170</span>
+                            </div>
+                            <div class="price-area-info">Larger Body Areas: Abdomen, Inner/Outer Thighs, Back</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <a href="skinity.html#treatments" class="back-button">← Back to Treatments</a>
         </div>
