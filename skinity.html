@@ -320,6 +320,10 @@
                 { src: 'ints5.png', link: 'https://www.instagram.com/p/DPjWZlZiDPj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
                 // Post 6: Usando imagem local e link direto
                 { src: 'inst6.png', link: 'https://www.instagram.com/p/DPwVZ4oCCBL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+                // Post 7: Novo post do Instagram
+                { src: 'inst11.png', link: 'https://www.instagram.com/p/DSm11EdCMKR/' },
+                // Post 8: Novo post do Instagram
+                { src: 'inst10.png', link: 'https://www.instagram.com/p/DT7pq4giGD2/' },
             ];
 
             // Alternative: Try to fetch from Instagram Graph API (requires access token)
@@ -576,7 +580,7 @@
             },
             {
                 name: "Lucy Silva",
-                text: "My skin became beautiful and wonderful — super luminous and with an even more youthful appearance. It looks like porcelain skin ✨ Thank you, Inês!",
+                text: "My skin became beautiful and wonderful - super luminous and with an even more youthful appearance. It looks like porcelain skin. Thank you, Inês!",
                 rating: 5
             },
             {
@@ -586,7 +590,7 @@
             },
             {
                 name: "Paula Fernandes",
-                text: "I was truly delighted with the result 🙏 I even have a friend who immediately became interested and asked for your contact 😂 so please remember me when you return, because she would love to book a treatment with you. I wish you a great return to London and a Happy New Year, with lots of health and success.",
+                text: "I was truly delighted with the result. I even have a friend who immediately became interested and asked for your contact, so please remember me when you return, because she would love to book a treatment with you. I wish you a great return to London and a Happy New Year, with lots of health and success.",
                 rating: 5
             },
             {
@@ -609,7 +613,7 @@
                 reviewCard.innerHTML = `
                     <div class="review-stars">${'★'.repeat(review.rating)}</div>
                     <p class="review-text">"${review.text}"</p>
-                    <p class="review-author">— ${review.name}</p>
+                    <p class="review-author">- ${review.name}</p>
                 `;
                 carousel.appendChild(reviewCard);
 

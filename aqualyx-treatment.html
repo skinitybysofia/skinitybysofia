@@ -620,6 +620,56 @@
             padding-top: 0.5rem;
             border-top: 1px solid rgba(212, 163, 115, 0.2);
         }
+        
+        @media (max-width: 768px) {
+            .intro-section {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+            
+            .intro-content {
+                order: 1;
+                width: 100%;
+            }
+            
+            .image-wrapper {
+                order: 2;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                margin-top: 1.5rem;
+            }
+            
+            .background-image {
+                width: 100%;
+                height: auto;
+                position: static;
+                transform: none;
+                top: 0;
+                left: 0;
+            }
+            
+            .treatment-content h1 {
+                font-size: 1.5rem;
+            }
+            
+            .detail-boxes {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            
+            .detail-box {
+                padding: 1rem;
+            }
+            
+            .detail-box h3 {
+                font-size: 0.95rem;
+            }
+            
+            .detail-box p {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -671,11 +721,11 @@
                 </div>
                 <div class="detail-box">
                     <h3>Downtime</h3>
-                    <p>Minimal (mild swelling, redness, or tenderness for 24–48 hours)</p>
+                    <p>Minimal (mild swelling, redness, or tenderness for 24-48 hours)</p>
                 </div>
                 <div class="detail-box">
                     <h3>Results</h3>
-                    <p>Gradually visible over 4–6 weeks; multiple sessions may be recommended</p>
+                    <p>Gradually visible over 4-6 weeks; multiple sessions may be recommended</p>
                 </div>
                 <div class="detail-box">
                     <h3>Longevity</h3>

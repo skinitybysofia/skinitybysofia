@@ -667,6 +667,56 @@
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 15px 35px rgba(107, 68, 35, 0.5);
         }
+        
+        @media (max-width: 768px) {
+            .intro-section {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+            
+            .intro-content {
+                order: 1;
+                width: 100%;
+            }
+            
+            .image-wrapper {
+                order: 2;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                margin-top: 1.5rem;
+            }
+            
+            .background-image {
+                width: 100%;
+                height: auto;
+                position: static;
+                transform: none;
+                top: 0;
+                left: 0;
+            }
+            
+            .treatment-content h1 {
+                font-size: 1.5rem;
+            }
+            
+            .detail-boxes {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            
+            .detail-box {
+                padding: 1rem;
+            }
+            
+            .detail-box h3 {
+                font-size: 0.95rem;
+            }
+            
+            .detail-box p {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -700,11 +750,11 @@
             <div class="intro-section">
                 <div class="intro-content">
                     <p style="margin-bottom: 0.5rem; font-size: 1rem;"><strong>What are Skin Boosters?</strong></p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">Skin boosters are advanced injectable treatments that go beyond regular skincare, working at a cellular level to deeply hydrate, nourish, and rejuvenate the skin from within. They improve texture, elasticity, firmness, and radiance, soften fine lines, and restore a healthy, youthful glow — leaving the skin smoother, plumper, and naturally luminous.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">At our clinic, we use only premium, science-backed formulations, chosen for their safety, effectiveness, and celebrity-approved results — loved by Hailey Bieber, Jennifer Aniston, and the Kardashians.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">Skin boosters are advanced injectable treatments that go beyond regular skincare, working at a cellular level to deeply hydrate, nourish, and rejuvenate the skin from within. They improve texture, elasticity, firmness, and radiance, soften fine lines, and restore a healthy, youthful glow - leaving the skin smoother, plumper, and naturally luminous.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">At our clinic, we use only premium, science-backed formulations, chosen for their safety, effectiveness, and celebrity-approved results - loved by Hailey Bieber, Jennifer Aniston, and the Kardashians.</p>
                     <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">We offer two exclusive ranges:</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Classic Icons – Profhilo and Seventy Hyal 2000:</strong> hyaluronic acid boosters that restore hydration, firmness, and glow for timeless, radiant skin.</p>
-                    <p style="margin-bottom: 0; font-size: 0.95rem;"><strong>Next-Generation Boosters – Vitaran Eyes, Vitaran I, and Vitaran II:</strong> revolutionary salmon DNA polynucleotide boosters that stimulate collagen, elastin, and cellular regeneration for deep, transformative rejuvenation.</p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Classic Icons - Profhilo and Seventy Hyal 2000:</strong> hyaluronic acid boosters that restore hydration, firmness, and glow for timeless, radiant skin.</p>
+                    <p style="margin-bottom: 0; font-size: 0.95rem;"><strong>Next-Generation Boosters - Vitaran Eyes, Vitaran I, and Vitaran II:</strong> revolutionary salmon DNA polynucleotide boosters that stimulate collagen, elastin, and cellular regeneration for deep, transformative rejuvenation.</p>
                 </div>
                 <div class="image-wrapper">
                     <img src="vitaranskinbooster.png" alt="Skinboosters" class="background-image">
@@ -720,19 +770,19 @@
                 </div>
                 <div class="detail-box">
                     <h3>Treatment time</h3>
-                    <p>30–45 minutes</p>
+                    <p>30-45 minutes</p>
                 </div>
                 <div class="detail-box">
                     <h3>Downtime</h3>
-                    <p>Minimal (small injection points may be visible for 24–48 hours)</p>
+                    <p>Minimal (small injection points may be visible for 24-48 hours)</p>
                 </div>
                 <div class="detail-box">
                     <h3>Full effect</h3>
-                    <p>Gradually visible over 2–4 weeks</p>
+                    <p>Gradually visible over 2-4 weeks</p>
                 </div>
                 <div class="detail-box">
                     <h3>Longevity</h3>
-                    <p>6–12 months (depending on product and area)</p>
+                    <p>6-12 months (depending on product and area)</p>
                 </div>
                 <div class="detail-box">
                     <h3>Skin benefit</h3>
@@ -743,7 +793,7 @@
             <div class="detail-boxes">
                 <div class="detail-box">
                     <h3>Follow-up</h3>
-                    <p>Recommended course of 2–3 sessions for optimal results</p>
+                    <p>Recommended course of 2-3 sessions for optimal results</p>
                 </div>
                 <div class="detail-box">
                     <h3>Consultation</h3>

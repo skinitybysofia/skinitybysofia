@@ -68,17 +68,22 @@
                 <a href="skinboosters-treatment-pt.html" class="learn-more">Saber Mais</a>
             </div>
             <div class="treatment">
-                <img src="fatreduction.png" alt="Tratamento Aqualyx" class="treatment-image">
-                <h3>Aqualyx</h3>
-                <p>Elimine a gordura localizada de forma segura e não invasiva com injeções de dissolução de gordura para um contorno corporal definido.</p>
-                <a href="aqualyx-treatment-pt.html" class="learn-more">Saber Mais</a>
-            </div>
-            <div class="treatment">
                 <img src="prp2.png" alt="Tratamento de Microneedling" class="treatment-image">
                 <h3>Microneedling</h3>
                 <p>Microneedling com PRP, exossomas e fatores de crescimento ajuda a reduzir cicatrizes de acne, melhora a luminosidade da pele e estimula o crescimento do cabelo.</p>
                 <a href="prp-treatment-pt.html" class="learn-more">Saber Mais</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Combination Packages Link Section -->
+    <section class="combination-link">
+        <div class="combination-link-container">
+            <a href="combination-packages-pt.html" class="combination-link-text">
+                <span class="star">★</span>
+                Clique aqui para explorar as nossas combinações de tratamentos com preços reduzidos - mais acessível do que reservar tratamentos individualmente
+                <span class="star">★</span>
+            </a>
         </div>
     </section>
 
@@ -90,7 +95,7 @@
             <div class="about-text">
                 <h2>Enf. Inês Sofia Pires</h2>
                 <p>Com mais de 5 anos de experiência em enfermagem em Portugal e no Reino Unido, nas áreas de cuidados pré e pós-operatórios e em contextos de emergência médica, concluiu em 2025 a sua especialização em Aesthetic numa das academias mais prestigiadas de Londres.</p>
-                <p>Aliando uma base clínica sólida a uma abordagem verdadeiramente personalizada, cada procedimento é cuidadosamente planeado para realçar as características únicas de cada cliente — com o objetivo de alcançar resultados subtis, elegantes e naturais. O foco não está em transformar, mas em revelar a melhor versão de si.</p>
+                <p>Aliando uma base clínica sólida a uma abordagem verdadeiramente personalizada, cada procedimento é cuidadosamente planeado para realçar as características únicas de cada cliente - com o objetivo de alcançar resultados subtis, elegantes e naturais. O foco não está em transformar, mas em revelar a melhor versão de si.</p>
                 <p>Recorrendo às técnicas mais avançadas e a produtos de elevada qualidade, cada tratamento é adaptado às necessidades específicas de cada pessoa, assegurando resultados seguros, eficazes e duradouros. Com um profundo conhecimento da harmonia facial, os clientes podem esperar melhorias equilibradas e sofisticadas, que respeitam e valorizam a sua autenticidade e individualidade.</p>
                 <a href="#contact" class="learn-more about-consultation">Agende uma Avaliação</a>
             </div>
@@ -204,7 +209,7 @@
         </div>
         <div class="legal-note-footer">
             <div class="legal-note">
-                <h3>Nota Legal – Portugal</h3>
+                <h3>Nota Legal - Portugal</h3>
                 <p>Em Portugal, de acordo com a Ordem dos Enfermeiros, os enfermeiros não se encontram habilitados a realizar tratamentos com toxina botulínica (botox) ou com preenchedores de ácido hialurónico. No entanto, procedimentos como skinboosters e microneedling podem ser realizados por enfermeiros, desde que cumpridos os requisitos de formação adequada, competência profissional e enquadramento legal.</p>
                 <p>Esta prática está em conformidade com o disposto no Parecer do Conselho de Enfermagem n.º 317/2023, ponto 3.9, da Ordem dos Enfermeiros.</p>
             </div>
@@ -261,7 +266,7 @@
             },
             {
                 name: "Lucy Silva",
-                text: "A minha pele ficou linda e maravilhosa — super luminosa e com um aspeto ainda mais jovem. Parece pele de porcelana ✨ Obrigada, Inês!",
+                text: "A minha pele ficou linda e maravilhosa - super luminosa e com um aspeto ainda mais jovem. Parece pele de porcelana. Obrigada, Inês!",
                 rating: 5
             },
             {
@@ -271,7 +276,7 @@
             },
             {
                 name: "Paula Fernandes",
-                text: "Fiquei verdadeiramente encantada com o resultado 🙏 Tenho inclusive uma amiga que ficou logo interessada e a pedir o seu contacto 😂 por isso, por favor, lembre-se de mim quando regressar, porque ela gostava muito de marcar tratamento consigo. Desejo-lhe um ótimo regresso a Londres e um Feliz Ano Novo, com muita saúde e sucesso.",
+                text: "Fiquei verdadeiramente encantada com o resultado. Tenho inclusive uma amiga que ficou logo interessada e a pedir o seu contacto, por isso, por favor, lembre-se de mim quando regressar, porque ela gostava muito de marcar tratamento consigo. Desejo-lhe um ótimo regresso a Londres e um Feliz Ano Novo, com muita saúde e sucesso.",
                 rating: 5
             },
             {
@@ -294,7 +299,7 @@
                 reviewCard.innerHTML = `
                     <div class="review-stars">${'★'.repeat(review.rating)}</div>
                     <p class="review-text">"${review.text}"</p>
-                    <p class="review-author">— ${review.name}</p>
+                    <p class="review-author">- ${review.name}</p>
                 `;
                 carousel.appendChild(reviewCard);
 
@@ -386,6 +391,10 @@
                 { src: 'ints5.png', link: 'https://www.instagram.com/p/DPjWZlZiDPj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
                 // Post 6: Usando imagem local e link direto
                 { src: 'inst6.png', link: 'https://www.instagram.com/p/DPwVZ4oCCBL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+                // Post 7: Novo post do Instagram
+                { src: 'inst11.png', link: 'https://www.instagram.com/p/DSm11EdCMKR/' },
+                // Post 8: Novo post do Instagram
+                { src: 'inst10.png', link: 'https://www.instagram.com/p/DT7pq4giGD2/' },
             ];
 
             // Alternative: Try to fetch from Instagram Graph API (requires access token)

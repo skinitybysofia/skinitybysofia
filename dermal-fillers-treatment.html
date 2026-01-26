@@ -515,6 +515,56 @@
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 15px 35px rgba(107, 68, 35, 0.5);
         }
+        
+        @media (max-width: 768px) {
+            .intro-section {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+            
+            .intro-content {
+                order: 1;
+                width: 100%;
+            }
+            
+            .image-wrapper {
+                order: 2;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                margin-top: 1.5rem;
+            }
+            
+            .background-image {
+                width: 100%;
+                height: auto;
+                position: static;
+                transform: none;
+                top: 0;
+                left: 0;
+            }
+            
+            .treatment-content h1 {
+                font-size: 1.5rem;
+            }
+            
+            .detail-boxes {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            
+            .detail-box {
+                padding: 1rem;
+            }
+            
+            .detail-box h3 {
+                font-size: 0.95rem;
+            }
+            
+            .detail-box p {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -565,7 +615,7 @@
                 </div>
                 <div class="detail-box">
                     <h3>Treatment time</h3>
-                    <p>30–45 minutes</p>
+                    <p>30-45 minutes</p>
                 </div>
                 <div class="detail-box">
                     <h3>Downtime</h3>
@@ -573,11 +623,11 @@
                 </div>
                 <div class="detail-box">
                     <h3>Full effect</h3>
-                    <p>Immediately visible, refining over 1–2 weeks</p>
+                    <p>Immediately visible, refining over 1-2 weeks</p>
                 </div>
                 <div class="detail-box">
                     <h3>Longevity</h3>
-                    <p>9–18 months (depending on area and product used)</p>
+                    <p>9-18 months (depending on area and product used)</p>
                 </div>
                 <div class="detail-box">
                     <h3>Reversible</h3>

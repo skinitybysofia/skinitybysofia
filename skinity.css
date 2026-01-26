@@ -629,23 +629,19 @@ body:has(.date-banner) .hero {
         height: 400px;
     }
 
-    .treatment-image {
-        height: 250px;
-        border-radius: 15px !important;
-    }
-
     .treatment-list {
         grid-template-columns: 1fr;
         padding: 0 1rem;
     }
+    
+    .treatment-image {
+        height: 250px;
+        max-height: 300px;
+        border-radius: 15px !important;
+    }
 
     .contact-container {
         grid-template-columns: 1fr;
-    }
-
-    .treatment-image {
-        max-height: 300px;
-        border-radius: 15px !important;
     }
 }
 
@@ -752,6 +748,7 @@ body:has(.date-banner) .hero {
     position: relative;
     z-index: 1;
     justify-content: center;
+    align-items: center;
 }
 
 .treatment-list::before {
@@ -785,8 +782,8 @@ body:has(.date-banner) .hero {
     overflow: visible;
     isolation: isolate;
     width: 100%;
-    max-width: 380px;
-    margin: 0 auto;
+    max-width: 350px;
+    margin: 0;
 }
 
 .treatment::before {
@@ -1696,8 +1693,9 @@ body:has(.date-banner) .hero {
 .instagram-track {
     display: flex;
     gap: 1.5rem;
-    animation: scrollInstagram 30s linear infinite;
+    animation: scrollInstagram 12s linear infinite;
     will-change: transform;
+    width: fit-content;
 }
 
 @keyframes scrollInstagram {
@@ -2533,7 +2531,7 @@ footer {
         grid-template-columns: 1fr;
         padding: 0 1rem;
     }
-
+    
     .contact-container {
         grid-template-columns: 1fr;
     }
@@ -2541,6 +2539,37 @@ footer {
     .treatment-image {
         max-height: 300px;
         border-radius: 15px !important;
+    }
+    
+    /* Reorganizar ordem dos elementos no mobile: título -> texto -> foto -> botão */
+    .treatment {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .treatment h3 {
+        order: 1;
+        font-size: 1.2rem !important;
+        margin-bottom: 0.8rem;
+    }
+    
+    .treatment p {
+        order: 2;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .treatment .treatment-image {
+        order: 3;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+    }
+    
+    .treatment .learn-more {
+        order: 4;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.95rem;
     }
 }
 

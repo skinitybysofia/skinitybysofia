@@ -441,7 +441,7 @@
         .price-value {
             color: #8B4513;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 1.5rem;
             text-shadow: 0 1px 2px rgba(139, 69, 19, 0.1);
             position: relative;
             z-index: 1;
@@ -521,7 +521,7 @@
         .price-savings-amount {
             color: #A0522D;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 1.3rem;
             white-space: nowrap;
         }
         .price-topup {
@@ -543,7 +543,7 @@
         .price-topup-amount {
             color: #8B4513;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 1.2rem;
             margin-left: auto;
         }
         .back-button {
@@ -581,6 +581,56 @@
         .section-divider:hover {
             background: #A0522D;
             height: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .intro-section {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+            
+            .intro-content {
+                order: 1;
+                width: 100%;
+            }
+            
+            .image-wrapper {
+                order: 2;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                margin-top: 1.5rem;
+            }
+            
+            .background-image {
+                width: 100%;
+                height: auto;
+                position: static;
+                transform: none;
+                top: 0;
+                left: 0;
+            }
+            
+            .treatment-content h1 {
+                font-size: 1.5rem;
+            }
+            
+            .detail-boxes {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            
+            .detail-box {
+                padding: 1rem;
+            }
+            
+            .detail-box h3 {
+                font-size: 0.95rem;
+            }
+            
+            .detail-box p {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -621,12 +671,12 @@
                 <div class="intro-content">
                     <p style="margin-bottom: 1rem; font-size: 1rem;"><strong>O que são Skin Boosters?</strong></p>
                     <p style="margin-bottom: 1rem; font-size: 0.95rem;">Os skin boosters são tratamentos injetáveis avançados que vão além dos cuidados de pele convencionais, atuando a nível celular para hidratar profundamente, nutrir e rejuvenescer a pele de dentro para fora.</p>
-                    <p style="margin-bottom: 1rem; font-size: 0.95rem;">Estes tratamentos melhoram visivelmente a textura, elasticidade, firmeza e luminosidade da pele, suavizam linhas finas e ajudam a restaurar um aspeto saudável, fresco e jovem — resultando numa pele mais suave, mais preenchida e naturalmente radiante.</p>
-                    <p style="margin-bottom: 1rem; font-size: 0.95rem;">Na nossa clínica, utilizamos exclusivamente formulações premium, cientificamente validadas e com marcação CE (CE Marked), o que significa que cumprem rigorosamente os padrões europeus de segurança, qualidade e desempenho, estando aprovadas para uso médico profissional na União Europeia. Todos os produtos são cuidadosamente selecionados pela sua eficácia, segurança e resultados reconhecidos internacionalmente — incluindo os favoritos de celebridades como Hailey Bieber, Jennifer Aniston e a família Kardashian.</p>
+                    <p style="margin-bottom: 1rem; font-size: 0.95rem;">Estes tratamentos melhoram visivelmente a textura, elasticidade, firmeza e luminosidade da pele, suavizam linhas finas e ajudam a restaurar um aspeto saudável, fresco e jovem - resultando numa pele mais suave, mais preenchida e naturalmente radiante.</p>
+                    <p style="margin-bottom: 1rem; font-size: 0.95rem;">Na nossa clínica, utilizamos exclusivamente formulações premium, cientificamente validadas e com marcação CE (CE Marked), o que significa que cumprem rigorosamente os padrões europeus de segurança, qualidade e desempenho, estando aprovadas para uso médico profissional na União Europeia. Todos os produtos são cuidadosamente selecionados pela sua eficácia, segurança e resultados reconhecidos internacionalmente - incluindo os favoritos de celebridades como Hailey Bieber, Jennifer Aniston e a família Kardashian.</p>
                     <p style="margin-bottom: 1rem; font-size: 0.95rem;">Disponibilizamos duas gamas cuidadosamente selecionadas:</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Ícones Clássicos – Profhilo e Seventy Hyal 2000</strong></p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Ícones Clássicos - Profhilo e Seventy Hyal 2000</strong></p>
                     <p style="margin-bottom: 1rem; font-size: 0.95rem;">Skin boosters à base de ácido hialurónico, desenvolvidos para restaurar a hidratação profunda, melhorar a firmeza e devolver à pele um brilho luminoso, natural e intemporal.</p>
-                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Boosters de Nova Geração – Vitaran Eyes, Vitaran I e Vitaran II</strong></p>
+                    <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Boosters de Nova Geração - Vitaran Eyes, Vitaran I e Vitaran II</strong></p>
                     <p style="margin-bottom: 0; font-size: 0.95rem;">Tratamentos inovadores à base de polinucleotídeos derivados de DNA de salmão, que estimulam a produção de colagénio e elastina, promovem a regeneração celular e proporcionam um rejuvenescimento profundo, progressivo e transformador.</p>
                 </div>
                 <div class="image-wrapper">
@@ -643,19 +693,19 @@
                 </div>
                 <div class="detail-box">
                     <h3>Tempo de tratamento</h3>
-                    <p>30–45 minutos</p>
+                    <p>30-45 minutos</p>
                 </div>
                 <div class="detail-box">
                     <h3>Tempo de recuperação</h3>
-                    <p>Mínimo (pequenos pontos de injeção podem ser visíveis durante 24–48 horas)</p>
+                    <p>Mínimo (pequenos pontos de injeção podem ser visíveis durante 24-48 horas)</p>
                 </div>
                 <div class="detail-box">
                     <h3>Efeito completo</h3>
-                    <p>Visível gradualmente ao longo de 2–4 semanas</p>
+                    <p>Visível gradualmente ao longo de 2-4 semanas</p>
                 </div>
                 <div class="detail-box">
                     <h3>Duração</h3>
-                    <p>6–12 meses (dependendo do produto e área)</p>
+                    <p>6-12 meses (dependendo do produto e área)</p>
                 </div>
                 <div class="detail-box">
                     <h3>Benefício para a pele</h3>
@@ -666,7 +716,7 @@
             <div class="detail-boxes">
                 <div class="detail-box">
                     <h3>Acompanhamento</h3>
-                    <p>Curso recomendado de 2–3 sessões para resultados ótimos</p>
+                    <p>Curso recomendado de 2-3 sessões para resultados ótimos</p>
                 </div>
                 <div class="detail-box">
                     <h3>Consulta</h3>
@@ -684,7 +734,7 @@
                     <div class="price-item">
                         <div>
                             <div class="price-item-header">
-                                <strong>Vitaran I – Firmeza e regeneração celular avançada.</strong>
+                                <strong>Vitaran I - Firmeza e regeneração celular avançada.</strong>
                                 <div class="price-value-single">
                                     <span class="price-value">€120</span>
                                     <span class="price-value-label">Por sessão</span>

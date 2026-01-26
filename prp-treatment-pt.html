@@ -447,7 +447,7 @@
         .price-value {
             color: #8B4513;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 1.5rem;
         }
         .price-savings {
             margin-top: 0.5rem;
@@ -499,7 +499,7 @@
         .price-topup-amount {
             color: #8B4513;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 1.2rem;
             margin-left: auto;
         }
         .results-section {
@@ -562,6 +562,56 @@
                 transform: translateX(-50%);
             }
         }
+        
+        @media (max-width: 768px) {
+            .intro-section {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+            
+            .intro-content {
+                order: 1;
+                width: 100%;
+            }
+            
+            .image-wrapper {
+                order: 2;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                margin-top: 1.5rem;
+            }
+            
+            .background-image {
+                width: 100%;
+                height: auto;
+                position: static;
+                transform: none;
+                top: 0;
+                left: 0;
+            }
+            
+            .treatment-content h1 {
+                font-size: 1.5rem;
+            }
+            
+            .detail-boxes {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            
+            .detail-box {
+                padding: 1rem;
+            }
+            
+            .detail-box h3 {
+                font-size: 0.95rem;
+            }
+            
+            .detail-box p {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -618,15 +668,15 @@
                 </div>
                 <div class="detail-box">
                     <h3>Tempo de tratamento</h3>
-                    <p>45–60 minutos</p>
+                    <p>45-60 minutos</p>
                 </div>
                 <div class="detail-box">
                     <h3>Tempo de recuperação</h3>
-                    <p>Mínimo; leve vermelhidão ou sensibilidade pode aparecer durante 24–48 horas</p>
+                    <p>Mínimo; leve vermelhidão ou sensibilidade pode aparecer durante 24-48 horas</p>
                 </div>
                 <div class="detail-box">
                     <h3>Resultados</h3>
-                    <p>Melhorias graduais e naturais ao longo de 2–4 semanas; resultados ótimos após 2–3 sessões</p>
+                    <p>Melhorias graduais e naturais ao longo de 2-4 semanas; resultados ótimos após 2-3 sessões</p>
                 </div>
                 <div class="detail-box">
                     <h3>Duração</h3>

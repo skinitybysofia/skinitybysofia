@@ -567,6 +567,56 @@
             font-size: 0.8rem;
             margin-left: auto;
         }
+        
+        @media (max-width: 768px) {
+            .intro-section {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+            
+            .intro-content {
+                order: 1;
+                width: 100%;
+            }
+            
+            .image-wrapper {
+                order: 2;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                margin-top: 1.5rem;
+            }
+            
+            .background-image {
+                width: 100%;
+                height: auto;
+                position: static;
+                transform: none;
+                top: 0;
+                left: 0;
+            }
+            
+            .treatment-content h1 {
+                font-size: 1.5rem;
+            }
+            
+            .detail-boxes {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            
+            .detail-box {
+                padding: 1rem;
+            }
+            
+            .detail-box h3 {
+                font-size: 0.95rem;
+            }
+            
+            .detail-box p {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -614,15 +664,15 @@
             <div class="detail-boxes">
                 <div class="detail-box">
                     <h3>Treatment time</h3>
-                    <p>45–60 minutes</p>
+                    <p>45-60 minutes</p>
                 </div>
                 <div class="detail-box">
                     <h3>Downtime</h3>
-                    <p>Minimal; mild redness or sensitivity may appear for 24–48 hours</p>
+                    <p>Minimal; mild redness or sensitivity may appear for 24-48 hours</p>
                 </div>
                 <div class="detail-box">
                     <h3>Results</h3>
-                    <p>Gradual, natural-looking improvements over 2–4 weeks; optimal results after 2–3 sessions</p>
+                    <p>Gradual, natural-looking improvements over 2-4 weeks; optimal results after 2-3 sessions</p>
                 </div>
                 <div class="detail-box">
                     <h3>Longevity</h3>
