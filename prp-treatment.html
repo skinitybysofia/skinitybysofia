@@ -401,41 +401,105 @@
             width: 100%;
         }
         .price-item {
-            padding: 0.8rem;
-            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+            padding: 1rem 1.1rem;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border-radius: 8px;
-            margin-bottom: 0.6rem;
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 248, 245, 0.98) 100%);
-            border: 1px solid rgba(212, 163, 115, 0.15);
+            background: #fff;
+            border: 1px solid rgba(212, 163, 115, 0.22);
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.06);
         }
         .price-item > div {
             display: flex;
             flex-direction: column;
-            gap: 0.3rem;
+            gap: 0.45rem;
         }
-        .price-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 0.8rem;
-            padding-bottom: 0.3rem;
-            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+        .price-treatment-name {
+            display: block;
+            color: #8B4513;
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 2px solid rgba(160, 82, 45, 0.2);
+            font-family: 'Playfair Display', serif;
         }
-        .price-value-single {
+        .price-lines {
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
-            gap: 0.2rem;
+            gap: 0.4rem;
         }
-        .price-value-label {
-            color: #8B7355;
-            font-size: 0.7rem;
+        .price-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            min-height: 1.6rem;
+        }
+        .price-line-label {
+            color: #6B4423;
+            font-size: 0.88rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .price-line-value {
+            color: #8B4513;
+            font-weight: 700;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            margin-left: auto;
+        }
+        .price-line-single .price-line-label,
+        .price-line-single .price-line-value {
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+        .price-line-course {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            column-gap: 1rem;
+            row-gap: 0.2rem;
+            margin-top: 0.1rem;
+            padding: 0.65rem 0.75rem;
+            background: linear-gradient(135deg, rgba(160, 82, 45, 0.14) 0%, rgba(205, 133, 63, 0.08) 100%);
+            border-radius: 8px;
+            border: 1.5px solid rgba(160, 82, 45, 0.3);
+        }
+        .price-line-course .price-line-label {
+            grid-column: 1;
+            grid-row: 1;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #8B4513;
+        }
+        .price-line-course .price-line-value {
+            grid-column: 2;
+            grid-row: 1;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #A0522D;
+            margin-left: 0;
+        }
+        .price-line-course .price-savings-badge {
+            grid-column: 1;
+            grid-row: 2;
+        }
+        .price-line-maintenance {
+            padding-top: 0.15rem;
+            border-top: 1px dashed rgba(212, 163, 115, 0.35);
+        }
+        .price-line-maintenance .price-line-label {
+            font-size: 0.76rem;
             font-weight: 500;
-            font-style: italic;
-            text-transform: lowercase;
+            color: #8B7355;
+            max-width: 70%;
+            line-height: 1.3;
+        }
+        .price-line-maintenance .price-line-value {
+            font-size: 0.88rem;
         }
         .price-item::before {
             content: '';
@@ -490,98 +554,41 @@
             color: #A0522D;
             transform: scale(1.05);
         }
-        .price-savings {
-            margin-top: 0.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-            padding: 0.5rem;
-            background: linear-gradient(135deg, rgba(160, 82, 45, 0.12) 0%, rgba(164, 113, 72, 0.08) 100%);
-            border-radius: 6px;
-            border: 2px solid #A0522D;
-            position: relative;
-            overflow: hidden;
-        }
-        .price-savings::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #A0522D 0%, #CD853F 50%, #A0522D 100%);
-            animation: shimmer 2s infinite;
-        }
-        @keyframes shimmer {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        .price-savings-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
-            margin-bottom: 0.1rem;
-        }
         .price-savings-badge {
             background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%);
             color: #FFFFFF;
             font-weight: 700;
-            font-size: 0.75rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(160, 82, 45, 0.3);
+            font-size: 0.65rem;
+            padding: 0.12rem 0.4rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(160, 82, 45, 0.25);
             text-transform: uppercase;
             letter-spacing: 0.2px;
             white-space: nowrap;
+            width: fit-content;
         }
-        .price-savings-text {
-            color: #6B4423;
-            font-size: 0.75rem;
-            font-weight: 600;
-            line-height: 1.25;
-        }
-        .price-savings-prices {
+        .price-addons-chips {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 0.1rem;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-top: 0.15rem;
+            padding-top: 0.35rem;
         }
-        .price-original {
-            color: #6B4423;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-decoration: line-through;
-            opacity: 0.8;
-            white-space: nowrap;
-        }
-        .price-savings-amount {
-            color: #A0522D;
-            font-weight: 700;
-            font-size: 0.85rem;
-            white-space: nowrap;
-        }
-        .price-topup {
-            margin-top: 0.4rem;
-            display: flex;
+        .addon-chip {
+            display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            padding: 0.4rem 0.6rem;
-            background: linear-gradient(135deg, rgba(139, 115, 85, 0.08) 0%, rgba(205, 133, 63, 0.05) 100%);
-            border-radius: 5px;
-            border-left: 2px solid #CD853F;
-            position: relative;
-        }
-        .price-topup-label {
+            font-size: 0.68rem;
             color: #8B7355;
-            font-size: 0.75rem;
-            font-weight: 500;
+            background: rgba(139, 115, 85, 0.07);
+            border: 1px solid rgba(212, 163, 115, 0.25);
+            border-radius: 20px;
+            padding: 0.15rem 0.5rem;
+            line-height: 1.2;
         }
-        .price-topup-amount {
+        .addon-chip span {
             color: #8B4513;
             font-weight: 700;
-            font-size: 0.8rem;
-            margin-left: auto;
+            margin-left: 0.15rem;
         }
         .results-section {
             margin-top: 3rem;
@@ -773,131 +780,130 @@
                     <h3>Microneedling with PRP</h3>
                     <div class="price-item">
                         <div>
-                            <div class="price-item-header">
-                                <strong>Face and Lips</strong>
-                                <div class="price-value-single">
-                                    <span class="price-value">Single session: £200</span>
+                            <strong class="price-treatment-name">Face</strong>
+                            <div class="price-lines">
+                                <div class="price-line price-line-single">
+                                    <span class="price-line-label">Single session</span>
+                                    <span class="price-line-value">£170</span>
+                                </div>
+                                <div class="price-line price-line-course">
+                                    <span class="price-line-label">Course of 3 sessions</span>
+                                    <span class="price-line-value">£460</span>
+                                    <span class="price-savings-badge">Save £50</span>
                                 </div>
                             </div>
-                            <div class="price-savings">
-                                <div class="price-savings-header">
-                                    <span class="price-savings-badge">Save £80</span>
-                                </div>
-                                <div class="price-savings-text">Course of 3 sessions</div>
-                                <div class="price-savings-amount">Total: £520</div>
-                            </div>
-                            <div class="price-topup">
-                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
-                                <span class="price-topup-amount">£180</span>
+                            <div class="price-addons-chips">
+                                <span class="addon-chip">Hands <span>£20</span></span>
+                                <span class="addon-chip">Neck <span>£20</span></span>
+                                <span class="addon-chip">Chest <span>£20</span></span>
                             </div>
                         </div>
                     </div>
                     <div class="price-item">
                         <div>
-                            <div class="price-item-header">
-                                <strong>Face, Lips and Scalp (Hair Growth)</strong>
-                                <div class="price-value-single">
-                                    <span class="price-value">Single session: £280</span>
+                            <strong class="price-treatment-name">Face and Scalp (Hair Growth)</strong>
+                            <div class="price-lines">
+                                <div class="price-line price-line-single">
+                                    <span class="price-line-label">Single session</span>
+                                    <span class="price-line-value">£280</span>
                                 </div>
-                            </div>
-                            <div class="price-savings">
-                                <div class="price-savings-header">
-                                    <span class="price-savings-badge">Save £140</span>
+                                <div class="price-line price-line-course">
+                                    <span class="price-line-label">Course of 3 sessions</span>
+                                    <span class="price-line-value">£750</span>
+                                    <span class="price-savings-badge">Save £90</span>
                                 </div>
-                                <div class="price-savings-text">Course of 3 sessions</div>
-                                <div class="price-savings-amount">Total: £700</div>
-                            </div>
-                            <div class="price-topup">
-                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
-                                <span class="price-topup-amount">£240</span>
+                                <div class="price-line price-line-maintenance">
+                                    <span class="price-line-label">Maintenance/Top up (after a full course)</span>
+                                    <span class="price-line-value">£240</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="price-item">
                         <div>
-                            <div class="price-item-header">
-                                <strong>Scalp (Hair Growth)</strong>
-                                <div class="price-value-single">
-                                    <span class="price-value">Single session: £200</span>
+                            <strong class="price-treatment-name">Scalp (Hair Growth)</strong>
+                            <div class="price-lines">
+                                <div class="price-line price-line-single">
+                                    <span class="price-line-label">Single session</span>
+                                    <span class="price-line-value">£210</span>
                                 </div>
-                            </div>
-                            <div class="price-savings">
-                                <div class="price-savings-header">
-                                    <span class="price-savings-badge">Save £80</span>
+                                <div class="price-line price-line-course">
+                                    <span class="price-line-label">Course of 3 sessions</span>
+                                    <span class="price-line-value">£580</span>
+                                    <span class="price-savings-badge">Save £50</span>
                                 </div>
-                                <div class="price-savings-text">Course of 3 sessions</div>
-                                <div class="price-savings-amount">Total: £520</div>
-                            </div>
-                            <div class="price-topup">
-                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
-                                <span class="price-topup-amount">£180</span>
+                                <div class="price-line price-line-maintenance">
+                                    <span class="price-line-label">Maintenance/Top up (after a full course)</span>
+                                    <span class="price-line-value">£200</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="price-category">
-                    <h3>Exosomes and Growth Factors</h3>
+                    <h3>Exosomes and Growth Factors (Product selected following skin assessment)</h3>
                     <div class="price-item">
                         <div>
-                            <div class="price-item-header">
-                                <strong>Face and Lips</strong>
-                                <div class="price-value-single">
-                                    <span class="price-value">Single session: £240</span>
+                            <strong class="price-treatment-name">Face</strong>
+                            <div class="price-lines">
+                                <div class="price-line price-line-single">
+                                    <span class="price-line-label">Single session</span>
+                                    <span class="price-line-value">£180</span>
+                                </div>
+                                <div class="price-line price-line-course">
+                                    <span class="price-line-label">Course of 3 sessions</span>
+                                    <span class="price-line-value">£490</span>
+                                </div>
+                                <div class="price-line price-line-maintenance">
+                                    <span class="price-line-label">Maintenance/Top up (after a full course)</span>
+                                    <span class="price-line-value">£170</span>
                                 </div>
                             </div>
-                            <div class="price-savings">
-                                <div class="price-savings-header">
-                                    <span class="price-savings-badge">Save £80</span>
-                                </div>
-                                <div class="price-savings-text">Course of 3 sessions</div>
-                                <div class="price-savings-amount">Total: £640</div>
-                            </div>
-                            <div class="price-topup">
-                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
-                                <span class="price-topup-amount">£200</span>
+                            <div class="price-addons-chips">
+                                <span class="addon-chip">Hands <span>£20</span></span>
+                                <span class="addon-chip">Neck <span>£20</span></span>
+                                <span class="addon-chip">Chest <span>£20</span></span>
                             </div>
                         </div>
                     </div>
                     <div class="price-item">
                         <div>
-                            <div class="price-item-header">
-                                <strong>Face, Lips and Scalp (Hair Growth)</strong>
-                                <div class="price-value-single">
-                                    <span class="price-value">Single session: £320</span>
+                            <strong class="price-treatment-name">Face and Scalp (Hair Growth)</strong>
+                            <div class="price-lines">
+                                <div class="price-line price-line-single">
+                                    <span class="price-line-label">Single session</span>
+                                    <span class="price-line-value">£290</span>
                                 </div>
-                            </div>
-                            <div class="price-savings">
-                                <div class="price-savings-header">
-                                    <span class="price-savings-badge">Save £80</span>
+                                <div class="price-line price-line-course">
+                                    <span class="price-line-label">Course of 3 sessions</span>
+                                    <span class="price-line-value">£780</span>
+                                    <span class="price-savings-badge">Save £90</span>
                                 </div>
-                                <div class="price-savings-text">Course of 3 sessions</div>
-                                <div class="price-savings-amount">Total: £880</div>
-                            </div>
-                            <div class="price-topup">
-                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
-                                <span class="price-topup-amount">£280</span>
+                                <div class="price-line price-line-maintenance">
+                                    <span class="price-line-label">Maintenance/Top up (after a full course)</span>
+                                    <span class="price-line-value">£280</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="price-item">
                         <div>
-                            <div class="price-item-header">
-                                <strong>Scalp (Hair Growth)</strong>
-                                <div class="price-value-single">
-                                    <span class="price-value">Single session: £240</span>
+                            <strong class="price-treatment-name">Scalp (Hair Growth)</strong>
+                            <div class="price-lines">
+                                <div class="price-line price-line-single">
+                                    <span class="price-line-label">Single session</span>
+                                    <span class="price-line-value">£210</span>
                                 </div>
-                            </div>
-                            <div class="price-savings">
-                                <div class="price-savings-header">
-                                    <span class="price-savings-badge">Save £80</span>
+                                <div class="price-line price-line-course">
+                                    <span class="price-line-label">Course of 3 sessions</span>
+                                    <span class="price-line-value">£580</span>
+                                    <span class="price-savings-badge">Save £50</span>
                                 </div>
-                                <div class="price-savings-text">Course of 3 sessions</div>
-                                <div class="price-savings-amount">Total: £640</div>
-                            </div>
-                            <div class="price-topup">
-                                <span class="price-topup-label">Maintenance/Top up (after a full course):</span>
-                                <span class="price-topup-amount">£200</span>
+                                <div class="price-line price-line-maintenance">
+                                    <span class="price-line-label">Maintenance/Top up (after a full course)</span>
+                                    <span class="price-line-value">£200</span>
+                                </div>
                             </div>
                         </div>
                     </div>

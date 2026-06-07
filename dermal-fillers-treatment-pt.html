@@ -394,6 +394,50 @@
             color: #A0522D;
             transform: scale(1.05);
         }
+        .price-group {
+            margin-bottom: 1.25rem;
+            padding: 0.75rem 1rem 0.5rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(212, 163, 115, 0.15);
+            transition: all 0.3s ease;
+        }
+        .price-group:hover {
+            background: rgba(255, 255, 255, 0.75);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.08);
+        }
+        .price-group-title {
+            color: #8B4513;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid rgba(160, 82, 45, 0.25);
+        }
+        .price-sub-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0.75rem 0.6rem 1.25rem;
+            border-bottom: 1px solid rgba(212, 163, 115, 0.08);
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+        .price-sub-item:last-child {
+            border-bottom: none;
+        }
+        .price-sub-item:hover {
+            background: rgba(139, 69, 19, 0.05);
+            padding-left: 1.5rem;
+        }
+        .price-sub-item span:first-child {
+            color: #6B4423;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .price-sub-item .price-value {
+            font-size: 1rem;
+        }
         .back-button {
             display: inline-block;
             background: #6B4423;
@@ -675,33 +719,50 @@
                 
                 <div class="price-category">
                     <h3>Facial Contouring and Enhancement</h3>
+
+                    <div class="price-group">
+                        <div class="price-group-title">Lip Filler</div>
+                        <div class="price-sub-item">
+                            <span>0.5mL</span>
+                            <span class="price-value">£160</span>
+                        </div>
+                        <div class="price-sub-item">
+                            <span>1mL</span>
+                            <span class="price-value">£200</span>
+                        </div>
+                    </div>
+
+                    <div class="price-group">
+                        <div class="price-group-title">Cheek Filler</div>
+                        <div class="price-sub-item">
+                            <span>1mL</span>
+                            <span class="price-value">£200</span>
+                        </div>
+                    </div>
+
+                    <div class="price-group">
+                        <div class="price-group-title">Smile Lines (Nasolabial Folds)</div>
+                        <div class="price-sub-item">
+                            <span>1mL</span>
+                            <span class="price-value">£200</span>
+                        </div>
+                    </div>
+
+                    <div class="price-group">
+                        <div class="price-group-title">Marionette Lines</div>
+                        <div class="price-sub-item">
+                            <span>1mL</span>
+                            <span class="price-value">£200</span>
+                        </div>
+                    </div>
+
                     <div class="price-item">
-                        <strong>Lips Filler 0.5mL</strong>
-                        <span class="price-value">£160</span>
+                        <strong>Jawline</strong>
+                        <span class="price-value">£425</span>
                     </div>
                     <div class="price-item">
-                        <strong>Lips Filler 1mL</strong>
-                        <span class="price-value">£220</span>
-                    </div>
-                    <div class="price-item">
-                        <strong>Cheek Filler 1mL</strong>
-                        <span class="price-value">£210</span>
-                    </div>
-                    <div class="price-item">
-                        <strong>Nasolabial Folds (Smile Lines)</strong>
-                        <span class="price-value">£210</span>
-                    </div>
-                    <div class="price-item">
-                        <strong>Marionette Lines</strong>
-                        <span class="price-value">£210</span>
-                    </div>
-                    <div class="price-item">
-                        <strong>Chin Filler</strong>
-                        <span class="price-value">£210</span>
-                    </div>
-                    <div class="price-item">
-                        <strong>Jawline Filler</strong>
-                        <span class="price-value">£230</span>
+                        <strong>Chin</strong>
+                        <span class="price-value">£350</span>
                     </div>
                     <div class="price-item">
                         <strong>Facial Filler Dissolve</strong>
